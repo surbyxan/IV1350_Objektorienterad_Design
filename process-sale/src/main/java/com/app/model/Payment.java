@@ -7,7 +7,9 @@ public class Payment {
 	private double changeBack;
 
 	public Payment(double totalPrice, double amountPaid, double changeBack) {
-		this.
+		this.totalPrice = totalPrice;
+		this.amountPaid = amountPaid;
+		this.changeBack = changeBack;
 	}
 
 }

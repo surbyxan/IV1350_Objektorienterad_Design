@@ -13,7 +13,7 @@ public class Integration {
     /**
      * The method that creates objects that represents connections to the DB's and the printer
      */
-    public Integration() {
+    public Integration(InventoryDB inv, AccountingDB acc, DiscountDB dis, Printer prt ) {
         this.inv = new InventoryDB();
         this.acc = new AccountingDB();
         this.dis = new DiscountDB();
@@ -21,5 +21,14 @@ public class Integration {
 
     }
     
+    public boolean signalValidItem(int itemID){
+       
+        return inv.signalValidItem(itemID);
+    }
+
+    public ItemDTO fetchItemData(int itemID){
+
+        return inv.getItemData(itemID);
+    }
 }
 

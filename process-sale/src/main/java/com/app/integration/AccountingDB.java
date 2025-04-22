@@ -14,6 +14,6 @@ public class AccountingDB {
 	}
 
     private updateDB( saleDTO saleDTO) {
-
+        return null;
     }
 }
