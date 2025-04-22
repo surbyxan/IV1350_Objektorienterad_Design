@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="se.kth.iv1350.amazingpos.view.ViewTest" time="0.046" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.app.AppTest" time="0.057" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/home/broli/KTH/iv1350/project/example/AmazingPOS/target/test-classes:/home/broli/KTH/iv1350/project/example/AmazingPOS/target/classes:/home/broli/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.1/junit-jupiter-api-5.3.1.jar:/home/broli/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/broli/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/home/broli/.m2/repository/org/junit/platform/junit-platform-commons/1.3.1/junit-platform-commons-1.3.1.jar:/home/broli/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.3.1/junit-jupiter-params-5.3.1.jar:/home/broli/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.1/junit-jupiter-engine-5.3.1.jar:/home/broli/.m2/repository/org/junit/platform/junit-platform-engine/1.3.1/junit-platform-engine-1.3.1.jar:"/>
+    <property name="java.class.path" value="/home/broli/KTH/iv1350/project/process-sale/target/test-classes:/home/broli/KTH/iv1350/project/process-sale/target/classes:/home/broli/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/broli/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://openjdk.org/"/>
@@ -12,9 +12,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/nix/store/d6haga98ml8ahq6kd1whrisgydfz7ha9-openjdk-headless-21.0.5+11/lib/openjdk/lib"/>
-    <property name="sun.java.command" value="/home/broli/KTH/iv1350/project/example/AmazingPOS/target/surefire/surefirebooter12904107167919173648.jar /home/broli/KTH/iv1350/project/example/AmazingPOS/target/surefire 2025-04-22T13-37-35_999-jvmRun1 surefire4348518739378053867tmp surefire_03281955173858388977tmp"/>
+    <property name="sun.java.command" value="/home/broli/KTH/iv1350/project/process-sale/target/surefire/surefirebooter16612656255056587781.jar /home/broli/KTH/iv1350/project/process-sale/target/surefire 2025-04-22T13-43-36_674-jvmRun1 surefire14607135760477221968tmp surefire_017548670679151309492tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/home/broli/KTH/iv1350/project/example/AmazingPOS/target/test-classes:/home/broli/KTH/iv1350/project/example/AmazingPOS/target/classes:/home/broli/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.1/junit-jupiter-api-5.3.1.jar:/home/broli/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/broli/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/home/broli/.m2/repository/org/junit/platform/junit-platform-commons/1.3.1/junit-platform-commons-1.3.1.jar:/home/broli/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.3.1/junit-jupiter-params-5.3.1.jar:/home/broli/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.1/junit-jupiter-engine-5.3.1.jar:/home/broli/.m2/repository/org/junit/platform/junit-platform-engine/1.3.1/junit-platform-engine-1.3.1.jar:"/>
+    <property name="surefire.test.class.path" value="/home/broli/KTH/iv1350/project/process-sale/target/test-classes:/home/broli/KTH/iv1350/project/process-sale/target/classes:/home/broli/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/broli/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/broli"/>
     <property name="user.language" value="en"/>
@@ -22,12 +22,12 @@
     <property name="java.version.date" value="2024-10-15"/>
     <property name="java.home" value="/nix/store/d6haga98ml8ahq6kd1whrisgydfz7ha9-openjdk-headless-21.0.5+11/lib/openjdk"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/home/broli/KTH/iv1350/project/example/AmazingPOS"/>
+    <property name="basedir" value="/home/broli/KTH/iv1350/project/process-sale"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/home/broli/KTH/iv1350/project/example/AmazingPOS/target/surefire/surefirebooter12904107167919173648.jar"/>
+    <property name="surefire.real.class.path" value="/home/broli/KTH/iv1350/project/process-sale/target/surefire/surefirebooter16612656255056587781.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.5+1-nixos"/>
     <property name="user.name" value="broli"/>
@@ -41,7 +41,7 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="java.version" value="21.0.5"/>
-    <property name="user.dir" value="/home/broli/KTH/iv1350/project/example/AmazingPOS"/>
+    <property name="user.dir" value="/home/broli/KTH/iv1350/project/process-sale"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="native.encoding" value="UTF-8"/>
@@ -53,5 +53,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testRunFakeExecution" classname="se.kth.iv1350.amazingpos.view.ViewTest" time="0.042"/>
+  <testcase name="shouldAnswerWithTrue" classname="com.app.AppTest" time="0.006"/>
 </testsuite>
