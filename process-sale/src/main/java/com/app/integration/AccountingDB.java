@@ -13,7 +13,7 @@ public class AccountingDB {
 		
 	}
 
-    private void updateDB( saleDTO saleDTO) {
-        return null;
+    private void updateDB( SaleDTO saleDTO) {
+        int hej = 1;
     }
 }
