@@ -6,36 +6,36 @@ import com.app.integration.*;
 public class Controller {
 
 	private Sale saleInstance;
-	private Integration Intgr;
+	private Integration intgr;
 
-	public Controller( Integration Intgr ) {
-		//contstructor for controller
-		this.Intgr = new Integration();	
+	public Controller(Integration intgr) {
+		// contstructor for controller
+		this.intgr = intgr;
 	}
 
-	public void startSale( int cashierID, int customerID ) {
-		this.saleInstance = new Sale( cashierID, customerID );
+	public void startSale(int cashierID, int customerID) {
+		this.saleInstance = new Sale(cashierID, customerID);
 	}
 
-	public ItemDTO enterItem( int itemID ) {
+	public ItemInSaleDTO enterItem(int itemID) {
 
-		ItemDTO itemDTOWithoutDB = saleInstance.isItemInSale(itemID);
-		if (itemDTOWithoutDB != null){
+		ItemInSaleDTO itemDTOWithoutDB = saleInstance.isItemInSale(itemID);
+		if (itemDTOWithoutDB != null) {
+
 			return itemDTOWithoutDB;
-		}else{
-
-			if (!Intgr.signalValidItem(itemID)){
+		} else {
+			if (!intgr.signalValidItem(itemID)) {
 				return null;
 			}
 
-			ItemDTO itemDTO = Intgr.fetchItemData(itemID);
-
+			ItemDTO itemDTO = intgr.fetchItemData(itemID);
 			saleInstance.addItem(itemDTO);
 
-			return itemDTO;
+			ItemInSaleDTO itemInSaleDTO = new ItemInSaleDTO( itemDTO, 1);
+			return itemInSaleDTO;
 		}
-		//todo to be able to return a item dto it must call on the fetching of item data method
+		// todo to be able to return a item dto it must call on the fetching of item
+		// data method
 	}
-	
 
 }

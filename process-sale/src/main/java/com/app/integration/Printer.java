@@ -1,5 +1,6 @@
 package com.app.integration;
 
+import com.app.model.*;
 /**
  * The printer class that prints the receipt
  */
@@ -18,7 +19,7 @@ public class Printer {
      * 
      * @param receipt the receipt to be printed
      */
-    public printReceipt( Receipt receipt ) {
+    public void printReceipt( Receipt receipt ) {
         System.out.println( "Hello printer!" );
     }
 }

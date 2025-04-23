@@ -1,15 +1,15 @@
-package com.app.model;
+package com.app.integration;
 
 import java.util.Random;
 import java.time.LocalDateTime;
 // import java.util.List;
 import java.util.HashMap;
 import java.lang.Integer;
-import com.app.integration.*;
+import com.app.model.*;
 /**
  * The sale class that 
  */
-public class Sale {
+public class SaleDTO {
 
 	private Random rnd = new Random();
 	
@@ -26,7 +26,7 @@ public class Sale {
 	private HashMap<Integer, ItemInSale> items;
 
 
-	public Sale(int cashierID, int customerID) {
+	public SaleDTO(int cashierID, int customerID) {
 		this.cashierID = cashierID;
 		this.customerID = customerID;
 
@@ -53,7 +53,10 @@ public class Sale {
 		boolean itemInSale = items.containsKey(itemID);
 		if (itemInSale){
 			increaseQuantity(itemID);
+
 			return items.get(itemID).getItemInSaleDTO();
+			// todo get ItemDTO from itemID through Item, without calling DB
+			
 		}
 		else {
 			return null;

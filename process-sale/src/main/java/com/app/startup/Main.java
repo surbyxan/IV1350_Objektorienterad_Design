@@ -12,16 +12,12 @@ import com.app.view.*;
  */
 public class Main {
 
-    private Integration intgr;
-    private Controller contr;
-    private View view;
-
     /**
      * 
      */
     public static void main(String[] args) {
-        this.intgr = new Integration();
-        this.contr = new Controller();
-        this.view = new View();
+        Integration intgr = new Integration();
+        Controller contr = new Controller(intgr);
+        View view = new View();
     }
 }

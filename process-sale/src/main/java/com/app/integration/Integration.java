@@ -13,7 +13,7 @@ public class Integration {
     /**
      * The method that creates objects that represents connections to the DB's and the printer
      */
-    public Integration(InventoryDB inv, AccountingDB acc, DiscountDB dis, Printer prt ) {
+    public Integration() {
         this.inv = new InventoryDB();
         this.acc = new AccountingDB();
         this.dis = new DiscountDB();

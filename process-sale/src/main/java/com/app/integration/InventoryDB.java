@@ -2,6 +2,7 @@ package com.app.integration;
 
 import java.util.HashMap;
 import java.lang.Integer;
+
 /**
  * The connection to a inventory DB
  */
@@ -39,21 +40,21 @@ public class InventoryDB {
     /**
      * The method that checks if an itemID is valid.
      */
-    public boolean signalValidItem(int itemID){
+    public boolean signalValidItem( int itemID ) {
         return items.containsKey(itemID);
     }
 
     /**
      * The method that returns the corresponding ItemDTO for an itemID.
      */
-    public ItemDTO getItemData(int itemID){
+    public ItemDTO getItemData( int itemID ) {
         return items.get(itemID);
     }
 
     /**
      * Simulates updating external inventory system by doing nothing.
      */
-    private void updateDB( SaleDTO saleDTO) {
+    private void updateDB( SaleDTO saleDTO ) {
         int hej = 1;
         // do update
     }

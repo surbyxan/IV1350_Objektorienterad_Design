@@ -1,5 +1,7 @@
 package com.app.model;
 
+import com.app.integration.*;
+
 /**
  * 
  */
@@ -13,15 +15,20 @@ public class ItemInSale {
 		this.count = 1;
 	}
 
-	public void increaseCount(){
+	public void increaseCount() {
 		count += 1;
 	}
 
-	public int getCount(){
+	public int getCount() {
 		return count;
 	}
 
-	public Item getItem(){
-		return item;
+	// public Item getItem(){
+	// return item;
+	// }
+
+
+	public ItemInSaleDTO getItemInSaleDTO() {
+		return new ItemInSaleDTO(new ItemDTO(item), count);
 	}
 }
