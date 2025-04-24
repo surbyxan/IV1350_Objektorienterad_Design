@@ -1,6 +1,5 @@
 package com.app.integration;
 
-import java.util.Random;
 import java.time.LocalDateTime;
 // import java.util.List;
 import java.util.HashMap;
@@ -11,7 +10,6 @@ import com.app.model.*;
  */
 public class SaleDTO {
 
-	private Random rnd = new Random();
 	
     private int cashierID;
     private int customerID;
@@ -26,29 +24,24 @@ public class SaleDTO {
 	private HashMap<Integer, ItemInSale> items;
 
 
-	public SaleDTO(int cashierID, int customerID) {
-		this.cashierID = cashierID;
-		this.customerID = customerID;
+	public SaleDTO(Sale sale) {
+		this.cashierID = sale.getCashierID();
+		this.customerID = sale.getCustomerID();
 
-		this.saleID = rnd.nextInt(100);
-        this.timeOfSale = LocalDateTime.now();
+		this.saleID = sale.getSaleID();
+        this.timeOfSale = sale.getTimeOfSale();
         // System.out.println(this.timeOfSale);
 
-        this.runningVAT = 0;
-        this.runningItemPrice = 0;
-        this.runningTotal = 0;
-        this.runningItemCount = 0;
+        this.runningVAT = sale.getRunningVAT();
+        this.runningItemPrice = sale.getRunningItemPrice();
+        this.runningTotal = sale.getRunningTotal();
+        this.runningItemCount = sale.getRunningItemCount();
 
-        this.availableChange = getChange();
-		this.items = new HashMap<Integer, ItemInSale>();
+        this.availableChange = sale.getAvailableChange();
+		this.items = sale.getItems();
 	}
 
-	private static double getChange() { 
-		//checkidouble change = 100; 
-        double change = 100;
-		return change; // in the model it says to return an int, but it is a double
-	}
-
+	
     public ItemInSaleDTO isItemInSale(int itemID){
 		boolean itemInSale = items.containsKey(itemID);
 		if (itemInSale){
@@ -73,4 +66,6 @@ public class SaleDTO {
 
 		items.put(new Integer(item.getID()), new ItemInSale(item));
 	}
+
+	
 }

@@ -42,13 +42,14 @@ public class Sale {
         this.availableChange = getChange();
 		this.items = new HashMap<Integer, ItemInSale>();
 	}
-
+	/** STARTUP **/
 	private static double getChange() { 
 		//checkidouble change = 100; 
         double change = 100;
 		return change; // in the model it says to return an int, but it is a double
 	}
 
+	/** ENTER ITEM **/
     public ItemInSaleDTO isItemInSale(int itemID){
 		boolean itemInSale = items.containsKey(itemID);
 		if (itemInSale){
@@ -69,5 +70,53 @@ public class Sale {
 		Item item = new Item(itemDTO);
 
 		items.put(new Integer(item.getID()), new ItemInSale(item));
+	}
+
+	/** REQUEST DISCOUNT **/
+	public SaleDTO getDTO() {
+		return new SaleDTO(this);
+
+	}
+
+
+	/** SALE GETTERS */
+	public int getCustomerID() {
+		return customerID;
+	}
+
+	public int getCashierID() {
+		return cashierID;
+	}
+
+	public int getSaleID() {
+		return saleID;
+	}
+
+	public LocalDateTime getTimeOfSale() {
+		return timeOfSale;
+	}
+
+	public double getRunningVAT() {
+		return runningVAT;
+	}
+
+	public double getRunningItemPrice() {
+		return runningItemPrice;
+	}
+
+	public double getRunningTotal() {
+		return runningTotal;
+	}
+
+	public double getRunningItemCount() {
+		return runningItemCount;
+	}
+
+	public double getAvailableChange() {
+		return availableChange;
+	}
+
+	public HashMap<Integer, ItemInSale> getItems() {
+		return items;
 	}
 }

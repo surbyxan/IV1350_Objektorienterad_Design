@@ -12,4 +12,8 @@ public class DiscountDB {
     public DiscountDB(){
 		
 	}
+
+    public double discountDBQuery(int type, SaleDTO saleDTO) {
+		
+	}
 }
