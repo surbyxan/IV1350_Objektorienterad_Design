@@ -30,5 +30,14 @@ public class Integration {
 
         return inv.getItemData(itemID);
     }
+
+    public DiscountCollectionDTO fetchDiscount(SaleDTO saleDTO) {
+        
+        double itemDiscount = dis.discountDBQuery(1, saleDTO);
+        double priceDiscountPercentage = dis.discountDBQuery(2, saleDTO);
+        double customerDiscountPercentage = dis.discountDBQuery(3, saleDTO);
+
+        return new DiscountCollectionDTO(itemDiscount, priceDiscountPercentage, customerDiscountPercentage);
+    }
 }
 
