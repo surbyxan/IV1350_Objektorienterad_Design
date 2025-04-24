@@ -38,4 +38,16 @@ public class Controller {
 		// data method
 	}
 
+	/** REQUEST DISCOUNT **/
+
+	public void requestDiscount() {
+		SaleDTO saleDTO = saleInstance.getDTO(); //! 1.1
+		
+		DiscountCollectionDTO discountData = intgr.fetchDiscount(saleDTO); //! 1.2
+
+		Discount curDiscount = new Discount(discountData); //! 1.3
+
+		saleInstance.applyDiscount(curDiscount); //! 1.4
+
+	}
 }
