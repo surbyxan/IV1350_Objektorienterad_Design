@@ -54,8 +54,7 @@ public class InventoryDB {
     /**
      * Simulates updating external inventory system by doing nothing.
      */
-    private void updateDB(SaleDTO saleDTO) {
-        int hej = 1;
-        // do update
+    public void updateDB(SaleDTO saleDTO) {
+        System.out.println("Information of the sale has been sent to the external inventory system");
     }
 }

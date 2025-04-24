@@ -2,6 +2,7 @@ package com.app.controller;
 
 import com.app.model.*;
 import com.app.integration.*;
+import com.app.view.*;
 
 public class Controller {
 
@@ -40,14 +41,30 @@ public class Controller {
 
 	/** REQUEST DISCOUNT **/
 
-	public void requestDiscount() {
+	public SaleDTO requestDiscount() {
 		SaleDTO saleDTO = saleInstance.getDTO(); //! 1.1
 		
 		DiscountCollectionDTO discountData = intgr.fetchDiscount(saleDTO); //! 1.2
 
-		Discount curDiscount = new Discount(discountData); //! 1.3
+		saleInstance.applyDiscount(discountData); //! 1.3
 
-		saleInstance.applyDiscount(curDiscount); //! 1.4
+		return saleInstance.getDTO();
+	}
+
+	/** PAYMENT */
+	public void startPayment(View view) {
+		Payment pay = saleInstance.initPayment(); //! 1.1
+
+		view.sendPaymentInfo(pay); //! 1.2
+
+		Receipt receipt = saleInstance.getReceipt(pay);
+
+		intgr.printReceipt(receipt);
+	}
+
+	/**END SALE **/
+	public void endSale() {
+		intgr.sendSaleInfo(saleInstance.getDTO());
 
 	}
 }

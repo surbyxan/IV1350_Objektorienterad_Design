@@ -1,5 +1,7 @@
 package com.app.integration;
 
+import com.app.model.Receipt;
+
 /**
  * The integration class that handles connection to the DB's and the printer
  */
@@ -38,6 +40,15 @@ public class Integration {
         double customerDiscountPercentage = dis.discountDBQuery(3, saleDTO);
 
         return new DiscountCollectionDTO(itemDiscount, priceDiscountPercentage, customerDiscountPercentage);
+    }
+
+    public void printReceipt(Receipt receipt) {
+        prt.printReceipt(receipt);
+    }
+
+    public void sendSaleInfo(SaleDTO saleDTO) {
+        acc.updateDB(saleDTO);
+        inv.updateDB(saleDTO);
     }
 }
 

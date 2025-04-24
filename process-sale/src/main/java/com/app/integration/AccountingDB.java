@@ -13,7 +13,7 @@ public class AccountingDB {
 		
 	}
 
-    private void updateDB( SaleDTO saleDTO) {
-        int hej = 1;
+    public void updateDB( SaleDTO saleDTO) {
+        System.out.println("Information of the sale has been sent to the external accounting system");
     }
 }

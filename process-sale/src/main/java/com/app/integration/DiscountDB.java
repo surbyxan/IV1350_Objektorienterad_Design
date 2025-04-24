@@ -17,9 +17,9 @@ public class DiscountDB {
 		if (type == 1) {            // Item discount total
             return 5.55;    
         } else if (type == 2) {     // Price discount percentage
-            return 5.0; 
+            return 0.05; 
         } else if (type == 3) {     // Customer discount percentage
-            return 10.0;    
+            return 0.1;    
         } else {                    // Invalid discount type
             return 0.0;
         }

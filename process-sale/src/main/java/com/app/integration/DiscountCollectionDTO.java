@@ -13,7 +13,15 @@ public class DiscountCollectionDTO {
 
 	}
 
-	public double discountDBQuery(int type, SaleDTO saleDTO) {
-		
+	public double getItemDiscount() {
+		return itemDiscount;
+	}
+
+	public double getPriceDiscountPercentage() {
+		return priceDiscountPercentage;
+	}
+
+	public double getCustomerDiscountPercentage() {
+		return customerDiscountPercentage;
 	}
 }

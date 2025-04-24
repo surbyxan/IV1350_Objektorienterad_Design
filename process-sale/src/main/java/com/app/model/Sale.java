@@ -70,6 +70,11 @@ public class Sale {
 		Item item = new Item(itemDTO);
 
 		items.put(new Integer(item.getID()), new ItemInSale(item));
+		
+		runningItemPrice += item.getPrice();
+		runningVAT += item.getVATPrice();
+		runningTotal = runningItemPrice + runningVAT;
+		runningItemCount++;
 	}
 
 	/** REQUEST DISCOUNT **/
@@ -78,6 +83,28 @@ public class Sale {
 
 	}
 
+	public void applyDiscount(DiscountCollectionDTO discountCollectionDTO) {
+		// Total price after item discount
+		runningTotal = runningTotal - discountCollectionDTO.getItemDiscount();
+
+		// Total price after price discount
+		runningTotal = runningTotal * (1.0 - discountCollectionDTO.getPriceDiscountPercentage());
+
+		// Total price after customer discount
+		runningTotal = runningTotal * (1.0 - discountCollectionDTO.getCustomerDiscountPercentage());
+	}
+
+
+	/**PAYEMNt **/
+	public Payment initPayment() {
+		double totalPrice = getRunningTotal();
+
+		return new Payment(totalPrice);
+	}
+
+	public Receipt getReceipt(Payment pay) {
+		return new Receipt(pay, this.getDTO());
+	}
 
 	/** SALE GETTERS */
 	public int getCustomerID() {
