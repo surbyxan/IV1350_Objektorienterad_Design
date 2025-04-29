@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.lang.Integer;
 
 /**
- * The connection to a inventory DB
+ * The connection to the inventory DB
  */
 public class InventoryDB {
 
@@ -38,21 +38,29 @@ public class InventoryDB {
     }
 
     /**
-     * The method that checks if an itemID is valid.
+     * Checks if the ID of an item exists in the database.
+     * 
+     * @param itemID the ID of the item that should be verified
+     * @return {@code true} if the item is valid, otherwise {@code false}
      */
     public boolean signalValidItem(int itemID) {
         return items.containsKey(itemID);
     }
 
     /**
-     * The method that returns the corresponding ItemDTO for an itemID.
+     * Returns the corresponding item DTO for an item ID.
+     * 
+     * @param itemID the ID of the item that whose infromation the function gets
+     * @return an item DTO containing the information of an item
      */
-    public ItemDTO getItemData(int itemID) {
+     public ItemDTO getItemData(int itemID) {
         return items.get(itemID);
     }
 
     /**
-     * Simulates updating external inventory system by doing nothing.
+     * Simulates updating the external inventory system.
+     * 
+     * @param saleDTO the sale whose information is to be sent to the inventory system
      */
     public void updateDB(SaleDTO saleDTO) {
         System.out.println("Information of the sale has been sent to the external inventory system");

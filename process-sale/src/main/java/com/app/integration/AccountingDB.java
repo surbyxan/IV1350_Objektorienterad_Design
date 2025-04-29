@@ -1,7 +1,7 @@
 package com.app.integration;
 
 /**
- * The connection to a accounting DB
+ * The connection to the accounting DB
  */
 public class AccountingDB {
     
@@ -13,6 +13,11 @@ public class AccountingDB {
 		
 	}
 
+    /**
+     * Updates the information to our imaginary accounting system.
+     * 
+     * @param saleDTO the sale DTO containting the information to be sent.
+     */
     public void updateDB( SaleDTO saleDTO) {
         System.out.println("Information of the sale has been sent to the external accounting system");
     }

@@ -21,6 +21,6 @@ public class Printer {
      */
     public void printReceipt( Receipt receipt ) {
        //todo mayhaps change tostring to smth else 
-        System.out.println( receipt.toString());
+        System.out.println( receipt.getString() );
     }
 }

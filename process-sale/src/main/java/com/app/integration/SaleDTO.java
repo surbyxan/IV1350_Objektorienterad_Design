@@ -67,5 +67,29 @@ public class SaleDTO {
 		items.put(new Integer(item.getID()), new ItemInSale(item));
 	}
 
+	public HashMap<Integer, ItemInSale> getItemsInSale() {
+		return this.items;
+	}
+
+	public LocalDateTime getTimeOfSale() {
+		return this.timeOfSale;
+	}
+
+	/**
+	 * Getter for running VAT.
+	 * @return The accumulated VAT of the sale.
+	 */
+	public double getRunningVAT() {
+		return runningVAT;
+	}
+
+	/**
+	 * Getter for total sale amount.
+	 * @return The total cost of the sale including VAT and discounts.
+	 */
+	public double getRunningTotal() {
+		return runningTotal;
+	}
+
 	
 }
