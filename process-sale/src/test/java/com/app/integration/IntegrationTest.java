@@ -79,7 +79,7 @@ public class IntegrationTest {
     void testSendSaleInfoDoesNotCrash() {
         SaleDTO saleDTO = new SaleDTO(new Sale(2, 6));
         
-        // assertDoesNotThrow(integration.sendSaleInfo(saleDTO));
+        assertDoesNotThrow(() -> integration.sendSaleInfo(saleDTO));
     }
     
 }

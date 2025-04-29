@@ -46,6 +46,38 @@ public class SaleTest {
         assertEquals(1.0, sale.getRunningItemCount());
         assertTrue(sale.getItems().containsKey(6));
 	}
+//! frn chattis ändra discount
+	@Test
+    void testApplyDiscountReducesTotal() {
+        ItemDTO itemDTO = new ItemDTO(6, "Apple" , 6.90, 0.414);
+        sale.addItem(itemDTO);  // Total: 20 + 4 = 24
 
-	
+        DiscountCollectionDTO discount = new DiscountCollectionDTO(4.0, 0.10, 0.10); // 4 off, then 10% + 10% off
+        sale.applyDiscount(discount);
+
+        double expectedAfterDiscount = (24.0 - 4.0) * 0.9 * 0.9;
+        assertEquals(expectedAfterDiscount, sale.getRunningTotal(), 0.001);
+        assertEquals(24.0, sale.getTotBeforeDiscount());
+        assertEquals(24.0 - expectedAfterDiscount, sale.getTotAppliedDiscount(), 0.001);
+    }
+
+    @Test
+    void testInitPaymentReturnsCorrectAmount() {
+        ItemDTO itemDTO = new ItemDTO(6, "Apple" , 6.90, 0.414);
+        sale.addItem(itemDTO); // Total: 15 + 3 = 18
+
+        Payment payment = sale.initPayment();
+        assertEquals(18.0, payment.getTotalPrice());
+    }
+
+    @Test
+    void testGetReceiptReturnsValidReceipt() {
+        ItemDTO itemDTO = new ItemDTO(6, "Apple" , 6.90, 0.414);
+        sale.addItem(itemDTO);
+        Payment payment = sale.initPayment();
+        Receipt receipt = sale.getReceipt(payment);
+
+        assertNotNull(receipt);
+    
+    }
 }
