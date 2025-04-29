@@ -19,5 +19,6 @@ public class Main {
         Integration intgr = new Integration();
         Controller contr = new Controller(intgr);
         View view = new View(contr);
+        view.viewCalls();
     }
 }

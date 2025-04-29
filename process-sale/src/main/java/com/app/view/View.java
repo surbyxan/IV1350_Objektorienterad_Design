@@ -50,8 +50,6 @@ public class View {
 
 		ItemInSaleDTO itemInSaleDTO1 = contr.enterItem(10);
 		System.out.println(itemInSaleDTO1.toString());
-		ItemInSaleDTO itemInSaleDTO2 = contr.enterItem(20);
-		System.out.println(itemInSaleDTO2.toString());
 		ItemInSaleDTO itemInSaleDTO3 = contr.enterItem(10);
 		System.out.println(itemInSaleDTO3.toString());
 
