@@ -68,8 +68,13 @@ public class Sale {
 	public ItemInSaleDTO isItemInSale(int itemID) {
 		boolean itemInSale = items.containsKey(itemID);
 		if (itemInSale) {
+			ItemInSale item = items.get(itemID);
 			increaseQuantity(itemID);
-			return items.get(itemID).getItemInSaleDTO();
+			runningItemPrice += item.getItem().getPrice(); // todo make this private method to avoid repeating code
+			runningVAT += item.getItem().getVATPrice();
+			runningTotal = runningItemPrice + runningVAT;
+			runningItemCount++;
+			return item.getItemInSaleDTO();
 		} else {
 			return null;
 		}

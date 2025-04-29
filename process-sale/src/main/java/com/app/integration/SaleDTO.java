@@ -140,8 +140,8 @@ public class SaleDTO {
 	public String getTotalWithAndWithoutDiscountAsString() {
 		return new String("Total Before Discount: " + totBeforeDiscount + 
 						  "\n\nItem Discount: " + discount.getItemDiscount() + 
-						  "\nTotal Price Discount: " + discount.getPriceDiscountPercentage() + "%" +
-						  "\nCustomer Discount: " + discount.getCustomerDiscountPercentage() + "%" +
+						  "\nTotal Price Discount: " + (discount.getPriceDiscountPercentage() *100)+ "%" +
+						  "\nCustomer Discount: " + (discount.getCustomerDiscountPercentage() *100) + "%" +
 						  "\nTotal Discount: " + totAppliedDiscount +
 						  "\n\nTotal Price to Pay: " + runningTotal + "\n");
 	}
