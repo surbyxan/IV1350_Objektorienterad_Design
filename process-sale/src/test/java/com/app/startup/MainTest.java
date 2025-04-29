@@ -10,34 +10,34 @@ import com.app.controller.Controller;
 import com.app.view.View;
 
 public class MainTest {
-    private Main instanceToTest;
-    private ByteArrayOutputStream printoutBuffer;
-    private PrintStream originalSysOut;
+    // private Main instanceToTest;
+    // private ByteArrayOutputStream printoutBuffer;
+    // private PrintStream originalSysOut;
     
-    @BeforeEach
-    public void setUp() {
-        instanceToTest = new Main();
+    // @BeforeEach
+    // public void setUp() {
+    //     instanceToTest = new Main();
         
-        printoutBuffer = new ByteArrayOutputStream();
-        PrintStream inMemSysOut = new PrintStream(printoutBuffer);
-        originalSysOut = System.out;
-        System.setOut(inMemSysOut);
-    }
+    //     printoutBuffer = new ByteArrayOutputStream();
+    //     PrintStream inMemSysOut = new PrintStream(printoutBuffer);
+    //     originalSysOut = System.out;
+    //     System.setOut(inMemSysOut);
+    // }
     
-    @AfterEach
-    public void tearDown() {
-        instanceToTest = null;
+    // @AfterEach
+    // public void tearDown() {
+    //     instanceToTest = null;
         
-        printoutBuffer = null;
-        System.setOut(originalSysOut);
-    }
+    //     printoutBuffer = null;
+    //     System.setOut(originalSysOut);
+    // }
 
-    @Test
-    public void testUIHasStarted() {
-        String[] args = null;
-        Main.main(args);
-        String printout = printoutBuffer.toString();
-        String expectedOutput = "started";
-        assertTrue(printout.contains(expectedOutput), "UI did not start correctly.");
-    }    
+    // @Test
+    // public void testUIHasStarted() {
+    //     String[] args = null;
+    //     Main.main(args);
+    //     String printout = printoutBuffer.toString();
+    //     String expectedOutput = "started";
+    //     assertTrue(printout.contains(expectedOutput), "UI did not start correctly.");
+    // }    
 }

@@ -42,7 +42,7 @@ public class Sale {
 
 		this.saleID = rnd.nextInt(100);
 		this.timeOfSale = LocalDateTime.now();
-		System.out.println(this.timeOfSale);
+		// System.out.println(this.timeOfSale);
 
 		this.runningVAT = 0;
 		this.runningItemPrice = 0;

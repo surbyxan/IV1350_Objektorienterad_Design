@@ -16,7 +16,7 @@ public class Main {
      * controller, and view. This is the starting point of the program.
      */
     public static void main(String[] args) {
-        Integration intgr = new Integration();
+        IntegrationTest intgr = new IntegrationTest();
         Controller contr = new Controller(intgr);
         View view = new View(contr);
         view.viewCalls();

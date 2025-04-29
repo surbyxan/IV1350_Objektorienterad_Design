@@ -20,7 +20,7 @@ public class Printer {
      * @param receipt the receipt to be printed
      */
     public void printReceipt( Receipt receipt ) {
-       //todo mayhaps change tostring to smth else 
+        
         System.out.println( receipt.getString() );
     }
 }
