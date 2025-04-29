@@ -16,8 +16,8 @@ public class ControllerTest {
 
     @BeforeEach
     void setup() {
-        controller = new Controller(integration);
         integration = new Integration();
+        controller = new Controller(integration);
         view = new View(controller);
     }
 	 @AfterEach
