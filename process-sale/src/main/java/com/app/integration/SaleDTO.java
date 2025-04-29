@@ -20,6 +20,10 @@ public class SaleDTO {
 	private double runningTotal;
 	private double runningItemCount;
     private double availableChange;
+	private double totBeforeDiscount;
+	private double totAppliedDiscount;
+
+	private DiscountCollectionDTO discount;
 
 	private HashMap<Integer, ItemInSale> items;
 
@@ -43,6 +47,10 @@ public class SaleDTO {
 
         this.availableChange = sale.getAvailableChange();
 		this.items = sale.getItems();
+
+		this.totBeforeDiscount = sale.getTotBeforeDiscount();
+		this.totAppliedDiscount = sale.getTotAppliedDiscount();
+		this.discount = sale.getDiscount();
 	}
 	
 	/**
@@ -124,5 +132,18 @@ public class SaleDTO {
 		return new String("Total: " + runningTotal);
 	}
 
+	
+	/**
+	 * Getter for total sale amount before discount is applied as a string.
+	 * @return The total cost of the sale including VAT and discounts.
+	 */
+	public String getTotalWithAndWithoutDiscountAsString() {
+		return new String("Total Before Discount: " + totBeforeDiscount + 
+						  "\n\nItem Discount: " + discount.getItemDiscount() + 
+						  "\nTotal Price Discount: " + discount.getPriceDiscountPercentage() + "%" +
+						  "\nCustomer Discount: " + discount.getCustomerDiscountPercentage() + "%" +
+						  "\nTotal Discount: " + totAppliedDiscount +
+						  "\n\nTotal Price to Pay: " + runningTotal + "\n");
+	}
 	
 }

@@ -61,10 +61,12 @@ public class Receipt {
 	}
 
 	private void addFooter() {
+		receiptString.append(saleDTO.getTotalWithAndWithoutDiscountAsString());
+		
 		double total = saleDTO.getRunningTotal();
 		double vat = saleDTO.getRunningVAT();
 		receiptString.append("\nTotal:" + "                " + total + "\n");
-		receiptString.append("Vat:  " + vat + "\n\n");
+		receiptString.append("VAT:  " + vat + "\n\n");
 
 		double paid = pay.getAmountPaid();
 		double change = pay.getChangeBack();

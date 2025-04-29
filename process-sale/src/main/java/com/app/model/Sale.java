@@ -23,6 +23,10 @@ public class Sale {
 	private double runningTotal;
 	private double runningItemCount;
 	private double availableChange;
+	private double totBeforeDiscount;
+	private double totAppliedDiscount;
+
+	private DiscountCollectionDTO discount;
 
 	private HashMap<Integer, ItemInSale> items;
 
@@ -101,9 +105,14 @@ public class Sale {
 	 * @param discountCollectionDTO The DTO containing all applicable discounts.
 	 */
 	public void applyDiscount(DiscountCollectionDTO discountCollectionDTO) {
+		discount = discountCollectionDTO;
+		totBeforeDiscount = runningTotal;
+
 		runningTotal = runningTotal - discountCollectionDTO.getItemDiscount();
 		runningTotal *= (1.0 - discountCollectionDTO.getPriceDiscountPercentage());
 		runningTotal *= (1.0 - discountCollectionDTO.getCustomerDiscountPercentage());
+
+		totAppliedDiscount = totBeforeDiscount - runningTotal;
 	}
 
 	/**
@@ -197,10 +206,35 @@ public class Sale {
 	}
 
 	/**
+	 * Getter for the running total before discount is applied.
+	 * @return running total before discount.
+	 */
+	public double getTotBeforeDiscount() {
+		return totBeforeDiscount;
+	}
+	
+	/**
+	 * Getter for the total discount amount.
+	 * @return The discounted amount.
+	 */
+	public double getTotAppliedDiscount() {
+		return totAppliedDiscount;
+	}
+
+	/**
+	 * Getter for the total discount collectionDTO.
+	 * @return The discount as a DiscountCollectionDTO.
+	 */
+	public DiscountCollectionDTO getDiscount() {
+		return discount;
+	}
+
+	/**
 	 * Getter for the items in the sale.
 	 * @return A map of item IDs to their corresponding ItemInSale objects.
 	 */
 	public HashMap<Integer, ItemInSale> getItems() {
 		return items;
 	}
+
 }
