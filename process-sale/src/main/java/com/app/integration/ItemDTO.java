@@ -41,18 +41,38 @@ public class ItemDTO {
 		this.itemVATPrice = item.getVATPrice();
 	}
 
+	/**
+     * Getter for the item ID.
+     *
+     * @return the item ID
+     */
 	public int getID() {
 		return this.itemID;
 	}
 
+	/**
+	 * Getter for the item description.
+	 * 
+	 * @return the item description
+	 */
 	public String getDescription() {
 		return this.itemDescription;
 	}
 
+	/**
+	 * Getter for the item price.
+	 * 
+	 * @return the item price
+	 */
 	public double getPrice() {
 		return this.itemPrice;
 	}
 
+	/**
+	 * Getter for the VAT rate for the item.
+	 * 
+	 * @return the VAT rate for the item
+	 */
 	public double getVATPrice() {
 		return this.itemVATPrice;
 	}

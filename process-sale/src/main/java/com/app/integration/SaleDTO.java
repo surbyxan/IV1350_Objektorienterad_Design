@@ -5,12 +5,12 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.lang.Integer;
 import com.app.model.*;
+
 /**
- * The sale class that 
+ * The class represents a DTO of the active sale
  */
 public class SaleDTO {
 
-	
     private int cashierID;
     private int customerID;
     private int saleID;
@@ -23,7 +23,11 @@ public class SaleDTO {
 
 	private HashMap<Integer, ItemInSale> items;
 
-
+	/**
+	 * Creates a new {@code SaleDTO} by extracting data from the given {@code Sale} object.
+	 *
+	 * @param sale the  object representing the sale
+	 */
 	public SaleDTO(Sale sale) {
 		this.cashierID = sale.getCashierID();
 		this.customerID = sale.getCustomerID();
@@ -40,8 +44,14 @@ public class SaleDTO {
         this.availableChange = sale.getAvailableChange();
 		this.items = sale.getItems();
 	}
-
 	
+	/**
+	 * Checks whether the specified item is already included in the sale and if it 
+	 * item exists, its quantity in the sale is increased and its data is returned.
+	 *
+	 * @param itemID the identifier of the item to check
+	 * @return an {@code ItemInSaleDTO} if the item is already in the sale, otherwise {@code null}
+	 */
     public ItemInSaleDTO isItemInSale(int itemID){
 		boolean itemInSale = items.containsKey(itemID);
 		if (itemInSale){
@@ -60,6 +70,11 @@ public class SaleDTO {
 		items.get(itemID).increaseCount();
 	}
 	
+	/**
+	 * Adds an item to the item list in a sale.
+	 * 
+	 * @param itemDTO the DTO of the item to be added
+	 */
 	public void addItem(ItemDTO itemDTO){
 		
 		Item item = new Item(itemDTO);
@@ -89,6 +104,14 @@ public class SaleDTO {
 	 */
 	public double getRunningTotal() {
 		return runningTotal;
+	}
+	
+	/**
+	 * Getter for total sale amount but it returns a string.
+	 * @return The total cost of the sale including VAT and discounts.
+	 */
+	public String getString() {
+		return new String("Total: " + runningTotal);
 	}
 
 	

@@ -49,14 +49,14 @@ public class View {
 		contr.startSale(22,1305);
 
 		ItemInSaleDTO itemInSaleDTO1 = contr.enterItem(10);
-		System.out.println(itemInSaleDTO1.toString());
+		System.out.println(itemInSaleDTO1.getString());
 		ItemInSaleDTO itemInSaleDTO2 = contr.enterItem(20);
-		System.out.println(itemInSaleDTO2.toString());
+		System.out.println(itemInSaleDTO2.getString());
 		ItemInSaleDTO itemInSaleDTO3 = contr.enterItem(10);
-		System.out.println(itemInSaleDTO3.toString());
+		System.out.println(itemInSaleDTO3.getString());
 
 		SaleDTO saleDTO = contr.requestDiscount();
-		System.out.println(saleDTO.toString());
+		System.out.println(saleDTO.getString());
 
 		contr.startPayment(this);
 
