@@ -82,10 +82,20 @@ public class SaleDTO {
 		items.put(new Integer(item.getID()), new ItemInSale(item));
 	}
 
+	/**
+	 * Returns a mapping of item IDs to the items included in the sale.
+	 *
+	 * @return a {@code HashMap} containing item IDs and their corresponding {@code ItemInSale} objects
+	 */
 	public HashMap<Integer, ItemInSale> getItemsInSale() {
 		return this.items;
 	}
 
+	/**
+	 * Returns the time when the sale was initiated.
+	 *
+	 * @return the timestamp of the sale
+	 */
 	public LocalDateTime getTimeOfSale() {
 		return this.timeOfSale;
 	}
