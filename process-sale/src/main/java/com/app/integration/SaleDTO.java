@@ -138,12 +138,13 @@ public class SaleDTO {
 	 * @return The total cost of the sale including VAT and discounts.
 	 */
 	public String getTotalWithAndWithoutDiscountAsString() {
-		return new String("Total Before Discount: " + totBeforeDiscount + 
-						  "\n\nItem Discount: " + discount.getItemDiscount() + 
-						  "\nTotal Price Discount: " + (discount.getPriceDiscountPercentage() *100)+ "%" +
-						  "\nCustomer Discount: " + (discount.getCustomerDiscountPercentage() *100) + "%" +
-						  "\nTotal Discount: " + totAppliedDiscount +
-						  "\n\nTotal Price to Pay: " + runningTotal + "\n");
+		return new String("Total Before Discount:     " + totBeforeDiscount + 
+						  "\n\nDiscounts:" +
+						  "\n  Item Discount:       " + discount.getItemDiscount() + " SEK" +
+						  "\n  Total Price Discount:  " + (discount.getPriceDiscountPercentage() *100)+ "%" +
+						  "\n  Customer Discount:     " + (discount.getCustomerDiscountPercentage() *100) + "%" +
+						  "\n  Total Discount:        " + totAppliedDiscount 
+						  );
 	}
 	
 }

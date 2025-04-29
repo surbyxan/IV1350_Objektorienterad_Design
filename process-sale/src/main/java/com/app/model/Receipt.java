@@ -4,6 +4,7 @@ import com.app.integration.*;
 import java.io.*;
 import java.util.HashMap;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * The receipt of a Sale and Payment.
@@ -46,14 +47,17 @@ public class Receipt {
 	}
 
 	private void addHeader() {
+		LocalDateTime dateTime = saleDTO.getTimeOfSale();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // Define the format
+
 		receiptString.append("---------- Begin receipt ----------\n");
-		receiptString.append("Time of Sale: " + saleDTO.getTimeOfSale().toString() + "\n\n");
+		receiptString.append("Time of Sale: " + dateTime.format(formatter) + "\n\n");
 	}
 
 	private void addItemToReceipt(ItemInSale item) {
 		String description = item.getItem().getDescription();
 		int count = item.getCount();
-		double price = item.getItem().getPrice();
+		double price = item.getItem().getPrice() + item.getItem().getVATPrice();
 		double itemTotalPrice = count * price; 
 
 		receiptString.append(description + "        " + count + " X " + price + "    " + itemTotalPrice + " SEK\n");
