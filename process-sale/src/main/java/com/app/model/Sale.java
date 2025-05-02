@@ -50,6 +50,8 @@ public class Sale {
 		this.runningItemCount = 0;
 
 		this.availableChange = getChange();
+
+		this.discount = new DiscountCollectionDTO(0, 0, 0);
 		this.items = new HashMap<>();
 	}
 
@@ -70,10 +72,7 @@ public class Sale {
 		if (itemInSale) {
 			ItemInSale item = items.get(itemID);
 			increaseQuantity(itemID);
-			runningItemPrice += item.getItem().getPrice(); // todo make this private method to avoid repeating code
-			runningVAT += item.getItem().getVATPrice();
-			runningTotal = runningItemPrice + runningVAT;
-			runningItemCount++;
+			addItemToRunningCost(item.getItem());
 			return item.getItemInSaleDTO();
 		} else {
 			return null;
@@ -91,8 +90,12 @@ public class Sale {
 	public void addItem(ItemDTO itemDTO) {
 		Item item = new Item(itemDTO);
 		items.put(item.getID(), new ItemInSale(item));
-		runningItemPrice += item.getPrice();
-		runningVAT += item.getVATPrice();
+		addItemToRunningCost(item);
+	}
+
+	private void addItemToRunningCost(Item itemToBeAdded) {
+		runningItemPrice += itemToBeAdded.getPrice();
+		runningVAT += itemToBeAdded.getVATPrice();
 		runningTotal = runningItemPrice + runningVAT;
 		runningItemCount++;
 	}
