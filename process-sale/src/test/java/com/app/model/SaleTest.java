@@ -50,15 +50,16 @@ public class SaleTest {
 	@Test
     void testApplyDiscountReducesTotal() {
         ItemDTO itemDTO = new ItemDTO(6, "Apple" , 6.90, 0.414);
-        sale.addItem(itemDTO);  // Total: 20 + 4 = 24
+        sale.addItem(itemDTO); 
 
-        DiscountCollectionDTO discount = new DiscountCollectionDTO(4.0, 0.10, 0.10); // 4 off, then 10% + 10% off
+        SaleDTO currentSale = sale.getDTO();
+        DiscountCollectionDTO discount = integration.fetchDiscount(currentSale); 
         sale.applyDiscount(discount);
 
-        double expectedAfterDiscount = (24.0 - 4.0) * 0.9 * 0.9;
+        double expectedAfterDiscount =(7.314 - 5.55) * 0.95 * 0.90; // 5.55 SEK, 5% and 10%
         assertEquals(expectedAfterDiscount, sale.getRunningTotal(), 0.001);
-        assertEquals(24.0, sale.getTotBeforeDiscount());
-        assertEquals(24.0 - expectedAfterDiscount, sale.getTotAppliedDiscount(), 0.001);
+        assertEquals(7.314, sale.getTotBeforeDiscount());
+        assertEquals(7.314 - expectedAfterDiscount, sale.getTotAppliedDiscount(), 0.001);
     }
 
     @Test
