@@ -46,7 +46,7 @@ public class SaleTest {
         assertEquals(1.0, sale.getRunningItemCount());
         assertTrue(sale.getItems().containsKey(6));
 	}
-//! frn chattis ändra discount
+
 	@Test
     void testApplyDiscountReducesTotal() {
         ItemDTO itemDTO = new ItemDTO(6, "Apple" , 6.90, 0.414);
@@ -65,7 +65,7 @@ public class SaleTest {
     @Test
     void testInitPaymentReturnsCorrectAmount() {
         ItemDTO itemDTO = new ItemDTO(6, "Apple" , 6.90, 0.414);
-        sale.addItem(itemDTO); // Total: 15 + 3 = 18
+        sale.addItem(itemDTO); 
 
         Payment payment = sale.initPayment();
         assertEquals(7.314, payment.getTotalPrice());
