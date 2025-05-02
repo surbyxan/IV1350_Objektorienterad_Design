@@ -47,14 +47,26 @@ public class View {
 	 */
 	public void viewCalls() {
 		contr.startSale(22,1305);
-
+		System.out.println("Add 1 item with ID 10:");
+		System.out.println("Item ID: 10");
+		System.out.println("Item description: Cheese");
+		System.out.println("Item Price: 28.00 ");
+		System.out.println("VAT: 12%");
+		System.out.println("Total Price: 31.36");
 		ItemInSaleDTO itemInSaleDTO1 = contr.enterItem(10);
 		System.out.println(itemInSaleDTO1.getString());
-		// ItemInSaleDTO itemInSaleDTO2 = contr.enterItem(20);
-		// System.out.println(itemInSaleDTO2.getString());
+
+
+		System.out.println("Add 1 item with ID 10:");
+		System.out.println("Item ID: 10");
+		System.out.println("Item description: Cheese");
+		System.out.println("Item Price: 28.00 ");
+		System.out.println("VAT: 12%");
+		System.out.println("Total Price: 62.72");
 		ItemInSaleDTO itemInSaleDTO3 = contr.enterItem(10);
 		System.out.println(itemInSaleDTO3.getString());
 
+		System.out.println("Discounts: -5.55 SEK, 5%, and 10%");
 		SaleDTO saleDTO = contr.requestDiscount();
 		System.out.println(saleDTO.getString());
 
