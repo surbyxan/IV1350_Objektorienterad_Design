@@ -1,3 +1,5 @@
+// run this command to execute main: mvn install
+ //                                   mvn exec:java -Dexec.mainClass="com.app.startup.Main"
 package com.app.startup;
 
 import com.app.integration.*;
