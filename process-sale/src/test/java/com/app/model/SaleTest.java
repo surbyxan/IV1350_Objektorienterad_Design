@@ -9,45 +9,45 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class SaleTest {
 
-	private Sale sale;
+    private Sale sale;
     private Integration integration;
 
-	@BeforeEach
-	void setup() {
-		sale = new Sale(1, 101);
+    @BeforeEach
+    void setup() {
+        sale = new Sale(1, 101);
         integration = new Integration();
     }
 
-	 @AfterEach
+    @AfterEach
     public void tearDown() {
         integration = null;
         sale = null;
     }
 
-	@Test
-	void doesTheSaleConstructorSetSaleIDAndTimeOfSale() {
-		int ID = sale.getSaleID();
-		LocalDateTime time = sale.getTimeOfSale();
+    @Test
+    void doesTheSaleConstructorSetSaleIDAndTimeOfSale() {
+        int ID = sale.getSaleID();
+        LocalDateTime time = sale.getTimeOfSale();
 
-		assertEquals(1, sale.getCashierID());
-		assertEquals(101, sale.getCustomerID());
-		assertEquals(50, ID, 100);
-		assertNotNull(time);
-	}
+        assertEquals(1, sale.getCashierID());
+        assertEquals(101, sale.getCustomerID());
+        assertEquals(50, ID, 100);
+        assertNotNull(time);
+    }
 
-	@Test
-	void doesAddItemAddToTheSale() {
-		ItemDTO itemDTO = new ItemDTO(6, "Apple" , 6.90, 0.414);
-		sale.addItem(itemDTO);
+    @Test
+    void doesAddItemAddToTheSale() {
+        ItemDTO itemDTO = new ItemDTO(6, "Apple" , 6.90, 0.414);
+        sale.addItem(itemDTO);
 
-		assertEquals(6.90, sale.getRunningItemPrice());
+        assertEquals(6.90, sale.getRunningItemPrice());
         assertEquals(0.414, sale.getRunningVAT());
         assertEquals(7.314, sale.getRunningTotal());
         assertEquals(1.0, sale.getRunningItemCount());
         assertTrue(sale.getItems().containsKey(6));
-	}
+    }
 
-	@Test
+    @Test
     void testApplyDiscountReducesTotal() {
         ItemDTO itemDTO = new ItemDTO(6, "Apple" , 6.90, 0.414);
         sale.addItem(itemDTO); 

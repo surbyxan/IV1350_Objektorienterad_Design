@@ -15,7 +15,7 @@ public class View {
 	 * Creates a new instance of {@code View}.
 	 */
 	public View(Controller contr) {
-    this.contr = contr;
+		this.contr = contr;
 	}
 
 	private int itemID = 2;
