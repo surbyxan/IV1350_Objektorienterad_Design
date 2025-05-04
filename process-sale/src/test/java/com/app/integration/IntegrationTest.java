@@ -35,19 +35,6 @@ public class IntegrationTest {
         prt = null;
     }
 
-    // @Test
-    // void testSignalValidItemValid() {
-    //     boolean result = integration.signalValidItem(10);
-    //     assertNotNull(result);
-    //     assertEquals(true, result);
-    // }
-
-    // @Test
-    // void testSignalValidItemInvalid() {
-    //     boolean result = integration.signalValidItem(99);
-    //     assertNotNull(result);
-    //     assertEquals(false, result);
-    // }
 
     @Test
     void testSignalValidItem() {
@@ -71,9 +58,6 @@ public class IntegrationTest {
         assertEquals(0.10, discount.getCustomerDiscountPercentage(), 0.01);
     }
 
-    // @Test
-    // void testPrintReceipt() {
-    // }
 
     @Test
     void testSendSaleInfoDoesNotCrash() {
