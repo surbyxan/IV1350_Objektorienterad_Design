@@ -1,6 +1,0 @@
-com/app/integration/IntegrationTest.class
-com/app/model/SaleTest.class
-com/app/model/ReceiptTest.class
-com/app/model/ItemInSaleTest.class
-com/app/startup/MainTest.class
-com/app/AppTest.class
