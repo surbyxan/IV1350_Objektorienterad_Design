@@ -55,6 +55,14 @@
         </plugin>
         <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
         <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>3.1.0</version>
+          <configuration>
+              <mainClass>com.app.startup.Main</mainClass>
+          </configuration>
+        </plugin>
+        <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
         </plugin>
@@ -69,6 +77,13 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
+          <!--<configuration>-->
+          <!--  <archive>-->
+          <!--    <manifest>-->
+          <!--      <mainClass>com.app.startup.Main</mainClass>-->
+          <!--    </manifest>-->
+          <!--  </archive>-->
+          <!--</configuration>-->
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
