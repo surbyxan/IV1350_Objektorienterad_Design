@@ -38,7 +38,7 @@ public class ControllerTest {
     @Test
     void testEnterItemInvalidItemReturnsNull() {
         controller.startSale(1, 101);
-        ItemInSaleDTO result = controller.enterItem(99); // 99 is invalid
+        ItemInSaleDTO result = controller.enterItem(99); 
         assertNull(result);
     }
 
@@ -46,9 +46,9 @@ public class ControllerTest {
     void testEnterItemAlreadyInSale() {
         controller.startSale(1, 101);
         controller.enterItem(10);
-        ItemInSaleDTO result = controller.enterItem(10); // Entering again
+        ItemInSaleDTO result = controller.enterItem(10); 
         assertEquals(10, result.getItemDTO().getID());
-        assertEquals(2, result.getCount()); // Simplified logic, assumes same quantity
+        assertEquals(2, result.getCount()); 
     }
 
     @Test
@@ -59,17 +59,4 @@ public class ControllerTest {
         assertEquals(22.067549999999997, saleDTO.getRunningTotal(), 0.01); // 10% discount
     }
 
-    // todo if redirect sys.out is relevant
-    // @Test
-    // void testStartPaymentAndReceipt() {
-    //     controller.startSale(1, 101);
-    //     controller.enterItem(10);
-    //     controller.startPayment(view);
-
-    //     assertEquals(view.wasPaymentSent());
-    //     // assertTrue(integration.wasReceiptPrinted());
-    // }
-
-    // @Test
-    // void testEndSaleSendsInfo()
 }
