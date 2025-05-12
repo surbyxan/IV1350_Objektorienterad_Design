@@ -1,4 +1,4 @@
-package main.java.com.app.util;
+package com.app.util;
 
 /**
  * An object that can print to a log.

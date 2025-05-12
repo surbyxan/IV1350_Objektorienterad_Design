@@ -1,4 +1,4 @@
-package main.java.com.app.util.Logger;
+package com.app.util.Logger;
 
 import java.io.FileWriter;
 import java.io.IOException;

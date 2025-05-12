@@ -1,4 +1,4 @@
-package main.java.com.app.util.Logger;
+package com.app.util.Logger;
 /**
  * Prints log messages to the terminal using <code>System.out<code/>
  */

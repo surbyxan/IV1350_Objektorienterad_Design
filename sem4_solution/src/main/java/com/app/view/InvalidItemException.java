@@ -1,4 +1,4 @@
-package main.java.com.app.view;
+package com.app.view;
 
 import java.lang.Exception;
 

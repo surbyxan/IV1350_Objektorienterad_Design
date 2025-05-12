@@ -1,4 +1,4 @@
-package main.java.com.app.integration;
+package com.app.integration;
 
 import java.lang.Exception;
 
