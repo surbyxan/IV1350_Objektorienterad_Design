@@ -1,0 +1,1 @@
+[12 maj 2025 15:35:17] Connection to inventory database could not be established. When trying to fetch ItemDTO for id: 8.

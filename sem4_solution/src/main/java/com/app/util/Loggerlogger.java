@@ -3,7 +3,7 @@ package com.app.util;
 /**
  * An object that can print to a log.
  */
-public interface Logger {
+public interface Loggerlogger {
 	
 	/**
 	 *  The specified message is printed to the log.

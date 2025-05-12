@@ -39,16 +39,6 @@ public class InventoryDB {
 
     }
 
-    // /**
-    //  * Checks if the ID of an item exists in the database.
-    //  * 
-    //  * @param itemID the ID of the item that should be verified
-    //  * @return {@code true} if the item is valid, otherwise {@code false}
-    //  */
-    // public boolean signalValidItem(int itemID) {
-    //     return items.containsKey(itemID);
-    // }
-
     /**
      * Returns the corresponding item DTO for an item ID.
      * 
@@ -59,7 +49,7 @@ public class InventoryDB {
      */
      public ItemDTO getItemData(int itemID) throws ItemNotFoundException {
         if(!items.containsKey(itemID))
-            throw new ItemNotFoundException();
+            throw new ItemNotFoundException(itemID);
 
         return items.get(itemID);
     }

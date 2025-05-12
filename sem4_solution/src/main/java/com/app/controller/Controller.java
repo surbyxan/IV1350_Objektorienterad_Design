@@ -5,8 +5,9 @@ import com.app.integration.*;
 import com.app.view.*;
 import java.lang.RuntimeException;
 import java.lang.Exception;
-import com.app.util.Logger.*;
+import com.app.util.Loggerlogger;
 import java.util.List;
+import java.util.ArrayList;
 
 
 /**
@@ -17,7 +18,7 @@ public class Controller {
 	private Sale saleInstance;
 	private Integration intgr;
 
-	private List<Logger> loggers;
+	private List<Loggerlogger> loggers;
 
 	/**
 	 * Constructs a new Controller with a specified integration component
@@ -26,7 +27,7 @@ public class Controller {
 	 */
 	public Controller(Integration intgr) {
 		this.intgr = intgr;
-		this.loggers = new List<Logger>();
+		this.loggers = new ArrayList<Loggerlogger>();
 	}
 
 	/**
@@ -68,8 +69,9 @@ public class Controller {
 				throw new InvalidItemException(itemNotFoundExc.getItemID()); // ! 1.2
 			} 
 			catch (InventoryDatabaseException invDatabaseExc) {
-				invDatabaseExc.printStackTrace();
-				//todo write to log
+				// invDatabaseExc.printStackTrace();
+				for(Loggerlogger log : loggers)
+					log.log(invDatabaseExc.getMessage());
 			}
 
 			if(itemDTO == null)
@@ -124,7 +126,12 @@ public class Controller {
 		intgr.sendSaleInfo(saleInstance.getDTO());
 	}
 
-	public void addLogger(Logger log) {
-		this.loggers.addItem(log);
+	/**
+	 * Adds a logger to the list of loggers.
+	 * 
+	 * @param log the logger to be added.
+	 */
+	public void addLogger(Loggerlogger log) {
+		this.loggers.add(log);
 	}
 }

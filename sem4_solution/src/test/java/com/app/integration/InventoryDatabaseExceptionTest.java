@@ -1,4 +1,4 @@
-package test.java.com.app.integration;
+package com.app.integration;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +11,7 @@ class InventoryDatabaseExceptionTest {
         String causeMessage =  "Connection to inventory database could not be established.";
         InventoryDatabaseException exception = new InventoryDatabaseException(testItemID, causeMessage);
 
-        String expectedMessage = "Connection to inventory database could not be established. When trying to fetch ItemDTO for id: 17.";
-        assertEquals(expectedMessage, exception.getMessage());
+        String expectedString = "Connection to inventory database could not be established. When trying to fetch ItemDTO for id: 17.";
+        assertEquals(expectedString, exception.getMessage());
     }
 }

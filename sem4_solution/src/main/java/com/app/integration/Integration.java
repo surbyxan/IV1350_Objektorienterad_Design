@@ -33,8 +33,9 @@ public class Integration {
      * @throws ItemNotFoundException if the itemID could not be found in the inventoryDB
      * @return an item DTO containing information about the item
      */
-    public ItemDTO fetchItemData(int itemID) throws InventoryDatabaseException {
-        if (itemID == 17)
+    public ItemDTO fetchItemData(int itemID) throws InventoryDatabaseException, 
+                                                    ItemNotFoundException {
+        if (itemID == 8)
             throw new InventoryDatabaseException(itemID, "Connection to inventory database could not be established.");
         return inv.getItemData(itemID);
     }

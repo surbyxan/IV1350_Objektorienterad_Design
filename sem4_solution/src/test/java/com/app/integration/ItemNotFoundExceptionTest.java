@@ -1,4 +1,4 @@
-package test.java.com.app.integration;
+package com.app.integration;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,6 +11,6 @@ public class ItemNotFoundExceptionTest {
         ItemNotFoundException exception = new ItemNotFoundException(testItemID);
 
         String expectedString =  "Unable to find Database entry for item ID: 100.";
-        assertEquals(expectedMessage, exception.getMessage());
+        assertEquals(expectedString, exception.getMessage());
     }
 }
