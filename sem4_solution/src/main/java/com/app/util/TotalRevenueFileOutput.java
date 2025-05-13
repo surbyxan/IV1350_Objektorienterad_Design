@@ -3,7 +3,7 @@ package com.app.util;
 import java.io.*;
 import com.app.util.*;
 
-import main.java.com.app.util.RevenueObserver;
+import com.app.util.RevenueObserver;
 
 /**
  * Logs total revenue updates to a file named "revenue.txt" and
