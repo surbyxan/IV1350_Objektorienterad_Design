@@ -37,10 +37,11 @@ public class TotalRevenueFileOutput implements RevenueObserver {
 	 * log file.
 	 */
 	public void addToRevenue(double totalPrice) {
-        logStream.println("---------------------------------------");
-        logStream.println("The prevoius total revenue was:      " + previousTotal + " SEK");
+        logStream.println("\n---------------------------------------");
+        logStream.println("The previous total revenue was:      " + previousTotal + " SEK");
         logStream.println("The revenue from the latest sale is: " + totalPrice + " SEK");
         logStream.println("The new total revenue is:            " + addSaleToPreviousTotal(totalPrice) + " SEK");
+        logStream.println("---------------------------------------\n");
         updatePreviousTotal();
 	}
 

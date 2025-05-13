@@ -109,4 +109,80 @@ public class View {
 		
 		contr.endSale();
 	}
+
+	public void viewCalls2() {
+		contr.startSale(22,1302);
+			
+		try {
+			ItemInSaleDTO itemInSaleDTO1 = contr.enterItem(12);
+			if (itemInSaleDTO1 != null){
+				System.out.println("Add 1 item with ID 12:");
+				System.out.println("Item ID: 12");
+				System.out.println("Item description: " + itemInSaleDTO1.getString());
+				System.out.println("Item Price: 25.00 ");
+				System.out.println("VAT: 6% ");
+				System.out.println("Total Price: 26.5 ");
+				System.out.println();
+			}
+		}
+		catch (InvalidItemException invalidItemExc) {
+			System.out.println(invalidItemExc.getMessage());
+		}
+			
+		try {
+			ItemInSaleDTO itemInSaleDTO2 = contr.enterItem(15);
+			if (itemInSaleDTO2 != null){
+				System.out.println("Add 1 item with ID 15:");
+				System.out.println("Item ID: 15");
+				System.out.println("Item description: " + itemInSaleDTO2.getString());
+				System.out.println("Item Price: 12.00 ");
+				System.out.println("VAT: 6%");
+				System.out.println("Total Price:  12.72");
+				System.out.println();
+			}
+		}
+		catch (InvalidItemException invalidItemExc) {
+			System.out.println(invalidItemExc.getMessage());
+		}
+			
+		try {
+			ItemInSaleDTO itemInSaleDTO3 = contr.enterItem(8);
+			if (itemInSaleDTO3 != null){
+				System.out.println("Add 1 item with ID 8:");
+				System.out.println("Item ID: 8");
+				System.out.println("Item description: " + itemInSaleDTO3.getString());
+				System.out.println("Item Price: 9.50 ");
+				System.out.println("VAT: 6%");
+				System.out.println("Total Price: 72.22");
+				System.out.println();
+			}
+		}
+		catch (InvalidItemException invalidItemExc) {
+			System.out.println(invalidItemExc.getMessage());
+		}
+			
+		try {
+			ItemInSaleDTO itemInSaleDTO4 = contr.enterItem(17);
+			if (itemInSaleDTO4 != null){
+				System.out.println("Add 1 item with ID 17:");
+				System.out.println("Item ID: 17");
+				System.out.println("Item description: " + itemInSaleDTO4.getString());
+				System.out.println("Item Price: 9.50 ");
+				System.out.println("VAT: 6%");
+				System.out.println("Total Price: 72.22");
+				System.out.println();
+			}
+		}
+		catch (InvalidItemException invalidItemExc) {
+			System.out.println(invalidItemExc.getMessage());
+		}
+			
+		System.out.println("Discounts: -5.55 SEK, 5%, and 10%");
+		SaleDTO saleDTO = contr.requestDiscount();
+		System.out.println(saleDTO.getString());
+		
+		contr.startPayment(this);
+		
+		contr.endSale();
+	}
 }

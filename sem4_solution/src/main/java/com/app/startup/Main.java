@@ -25,5 +25,6 @@ public class Main {
         contr.addLogger(new FileLogger());
         View view = new View(contr);
         view.viewCalls();
+        view.viewCalls2();
     }
 }

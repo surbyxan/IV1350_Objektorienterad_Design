@@ -31,7 +31,7 @@ public class InventoryDB {
         items.put(9, new ItemDTO(9, "Shampoo", 49.00, 9.80)); // 25% VAT
         items.put(10, new ItemDTO(10, "Cheese", 28.00, 3.36)); // 12% VAT
         items.put(11, new ItemDTO(11, "Ground Coffee", 42.00, 5.04)); // 12% VAT
-        items.put(12, new ItemDTO(12, "Bread", 25.00, 1.50)); // 6% VAT
+        items.put(12, new ItemDTO(12, "Olives", 25.00, 1.50)); // 6% VAT
         items.put(13, new ItemDTO(13, "Yogurt", 10.00, 1.20)); // 12% VAT
         items.put(14, new ItemDTO(14, "Chocolate Bar", 15.00, 3.00)); // 25% VAT
         items.put(15, new ItemDTO(15, "Lettuce", 12.00, 0.72)); // 6% VAT

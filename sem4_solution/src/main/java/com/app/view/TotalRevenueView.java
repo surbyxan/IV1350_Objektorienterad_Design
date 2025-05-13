@@ -3,10 +3,13 @@ package com.app.view;
 import com.app.controller.*;
 import com.app.integration.*;
 import com.app.view.*;
+
+// import main.java.com.app.util.RevenueObserver;
+
 import com.app.model.*;
 import com.app.util.*;
 
-class TotalRevenueView implements RevenueObserver {
+public class TotalRevenueView implements RevenueObserver {
     public double previousTotal;
     public double newTotal;
     
@@ -32,10 +35,11 @@ class TotalRevenueView implements RevenueObserver {
 	 * log file.
 	 */
     public void addToRevenue(double totalPrice) {
-        System.out.println("---------------------------------------");
-        System.out.println("The prevoius total revenue was:      " + previousTotal + " SEK");
+        System.out.println("\n----------------- REVENUE -----------------");
+        System.out.println("The previous total revenue was:      " + previousTotal + " SEK");
         System.out.println("The revenue from the latest sale is: " + totalPrice + " SEK");
         System.out.println("The new total revenue is:            " + addSaleToPreviousTotal(totalPrice) + " SEK");
+        System.out.println("-------------------------------------------\n\n");
         updatePreviousTotal();
     }
     

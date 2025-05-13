@@ -74,8 +74,8 @@ public class Receipt {
 
 		double paid = pay.getAmountPaid();
 		double change = pay.getChangeBack();
-		receiptString.append("Cash:" + "                " + paid + "SEK\n");
-		receiptString.append("Change:" +  "             " + change + "SEK\n");
+		receiptString.append("Cash:" + "                " + paid + " SEK\n");
+		receiptString.append("Change:" +  "             " + change + " SEK\n");
 		receiptString.append("---------- End receipt ----------\n");
 	}
 	
