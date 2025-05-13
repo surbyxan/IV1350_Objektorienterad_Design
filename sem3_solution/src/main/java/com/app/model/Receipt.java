@@ -13,7 +13,12 @@ public class Receipt {
 
 	private Payment pay;
 	private SaleDTO saleDTO;
-	private StringBuilder receiptString;
+	private LocalDateTime dateTime;
+	private DateTimeFormatter formatter;
+	private double total;
+	private double vat;
+	private double paid;
+	private double change;
 
 	/**
 	 * Creates a new receipt and formats the contents pay and saleDTO
@@ -25,58 +30,85 @@ public class Receipt {
 	public Receipt(Payment pay, SaleDTO saleDTO) {
 		this.pay = pay;
 		this.saleDTO = saleDTO; 
-		receiptString = new StringBuilder();
-
-		addHeader();
-
-		// Iterate over each ItemInSale in saleDTO
-		for (ItemInSale item : saleDTO.getItemsInSale().values()) {
-			addItemToReceipt(item);
-		}
-
-		addFooter();
+		this.dateTime = saleDTO.getTimeOfSale();
+		this.formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // Define the format
+		total = saleDTO.getRunningTotal();
+		vat = saleDTO.getRunningVAT();
+		paid = pay.getAmountPaid();
+		change = pay.getChangeBack();
 	}
 
 	/**
-	 * Getter for the receipt formatted to a string.
-	 * 
-	 * @return the receipt as a string.
+	 * Getter for the payment associated with the transaction.
+	 *
+	 * @return The payment object.
 	 */
-	public String getString(){
-		return receiptString.toString();
+	public Payment getPayment() {
+		return pay;
 	}
 
-	private void addHeader() {
-		LocalDateTime dateTime = saleDTO.getTimeOfSale();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // Define the format
-
-		receiptString.append("---------- Begin receipt ----------\n");
-		receiptString.append("Time of Sale: " + dateTime.format(formatter) + "\n\n");
+	/**
+	 * Getter for the SaleDTO containing information about the sale.
+	 *
+	 * @return The SaleDTO object.
+	 */
+	public SaleDTO getSaleDTO() {
+		return saleDTO;
 	}
 
-	private void addItemToReceipt(ItemInSale item) {
-		String description = item.getItem().getDescription();
-		int count = item.getCount();
-		double price = item.getItem().getPrice() + item.getItem().getVATPrice();
-		double itemTotalPrice = count * price; 
-
-		receiptString.append(description + "        " + count + " X " + price + "    " + itemTotalPrice + " SEK\n");
-
+	/**
+	 * Getter for the date and time when the transaction occurred.
+	 *
+	 * @return The date and time as a LocalDateTime object.
+	 */
+	public LocalDateTime getDateTime() {
+		return dateTime;
 	}
 
-	private void addFooter() {
-		receiptString.append(saleDTO.getTotalWithAndWithoutDiscountAsString());
-		
-		double total = saleDTO.getRunningTotal();
-		double vat = saleDTO.getRunningVAT();
-		receiptString.append("\nTotal:" + "                " + total + "\n");
-		receiptString.append("VAT:  " + vat + "\n\n");
-
-		double paid = pay.getAmountPaid();
-		double change = pay.getChangeBack();
-		receiptString.append("Cash:" + "                " + paid + "SEK\n");
-		receiptString.append("Change:" +  "             " + change + "SEK\n");
-		receiptString.append("---------- End receipt ----------\n");
+	/**
+	 * Getter for the formatter used to format date and time values.
+	 *
+	 * @return The DateTimeFormatter object.
+	 */
+	public DateTimeFormatter getFormatter() {
+		return formatter;
 	}
+
+	/**
+	 * Getter for the total amount of the sale.
+	 *
+	 * @return The total amount.
+	 */
+	public double getTotal() {
+		return total;
+	}
+
+	/**
+	 * Getter for the VAT (Value Added Tax) for the sale.
+	 *
+	 * @return The VAT amount.
+	 */
+	public double getVAT() {
+		return vat;
+	}
+
+	/**
+	 * Getter for the amount paid by the customer.
+	 *
+	 * @return The amount paid.
+	 */
+	public double getPaid() {
+		return paid;
+	}
+
+	/**
+	 * Getter for the change to be given back to the customer.
+	 *
+	 * @return The change amount.
+	 */
+	public double getChange() {
+		return change;
+	}
+
 	
 }

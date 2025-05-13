@@ -32,7 +32,6 @@ public class Controller {
 	}
 
 	// * ENTER ITEM
-
 	/**
 	 * Processes the entry of an item into the current sale.
 	 * If the item is already part of the sale, its current sale data is returned.
@@ -62,7 +61,6 @@ public class Controller {
 	}
 
 	// * REQUEST DISCOUNT
-
 	/**
 	 * Requests and applies discounts to the current sale by retrieving the current sale data, 
 	 * fetching discounts, and applying the discounts to the sale.
@@ -80,19 +78,22 @@ public class Controller {
 	}
 
 	// * PAYMENT 
-
 	/**
 	 * Initiates the payment for the current sale and handles the receipt.
 	 * @param view the view component responsible for handling payment interaction
+	 * 
+	 * @return the receipt that was created from sale and payment.
  	 */
-	public void startPayment(View view) {
+	public Receipt startPayment(View view) {
 		Payment pay = saleInstance.initPayment(); // ! 1.1
 
 		view.sendPaymentInfo(pay); // ! 1.2
 
 		Receipt receipt = saleInstance.getReceipt(pay);
 
-		intgr.printReceipt(receipt);
+		intgr.printFakeReceipt(receipt);
+
+		return receipt;
 	}
 
 	// * END SALE

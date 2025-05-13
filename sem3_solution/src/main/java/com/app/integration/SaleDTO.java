@@ -38,15 +38,22 @@ public class SaleDTO {
 
 		this.saleID = sale.getSaleID();
         this.timeOfSale = sale.getTimeOfSale();
-        // System.out.println(this.timeOfSale);
-
+        
         this.runningVAT = sale.getRunningVAT();
         this.runningItemPrice = sale.getRunningItemPrice();
         this.runningTotal = sale.getRunningTotal();
         this.runningItemCount = sale.getRunningItemCount();
 
         this.availableChange = sale.getAvailableChange();
-		this.items = sale.getItems();
+
+		this.items = new HashMap<Integer, ItemInSale>();
+		for (HashMap.Entry<Integer, ItemInSale> entry : sale.getItems().entrySet()) {
+			Integer id = entry.getKey();
+			ItemInSale itemInSale = entry.getValue();
+
+			this.items.put(new Integer(id), new ItemInSale(itemInSale));
+
+		}
 
 		this.totBeforeDiscount = sale.getTotBeforeDiscount();
 		this.totAppliedDiscount = sale.getTotAppliedDiscount();
@@ -125,26 +132,52 @@ public class SaleDTO {
 	}
 	
 	/**
-	 * Getter for total sale amount but it returns a string.
-	 * @return The total cost of the sale including VAT and discounts.
+	 * Getter for item count.
+	 * @return The number of items in the sale.
 	 */
-	public String getString() {
-		return new String("Total: " + runningTotal);
+	public double getRunningItemCount() {
+		return runningItemCount;
 	}
 
+	/**
+	 * Getter for available change in the register.
+	 * @return The available change.
+	 */
+	public double getAvailableChange() {
+		return availableChange;
+	}
+
+	/**
+	 * Getter for the running total before discount is applied.
+	 * @return running total before discount.
+	 */
+	public double getTotBeforeDiscount() {
+		return totBeforeDiscount;
+	}
 	
 	/**
-	 * Getter for total sale amount before discount is applied as a string.
-	 * @return The total cost of the sale including VAT and discounts.
+	 * Getter for the total discount amount.
+	 * @return The discounted amount.
 	 */
-	public String getTotalWithAndWithoutDiscountAsString() {
-		return new String("Total Before Discount:     " + totBeforeDiscount + 
-						  "\n\nDiscounts:" +
-						  "\n  Item Discount:       " + discount.getItemDiscount() + " SEK" +
-						  "\n  Total Price Discount:  " + (discount.getPriceDiscountPercentage() *100)+ "%" +
-						  "\n  Customer Discount:     " + (discount.getCustomerDiscountPercentage() *100) + "%" +
-						  "\n  Total Discount:        " + totAppliedDiscount 
-						  );
+	public double getTotAppliedDiscount() {
+		return totAppliedDiscount;
 	}
+
+	/**
+	 * Getter for the total discount collectionDTO.
+	 * @return The discount as a DiscountCollectionDTO.
+	 */
+	public DiscountCollectionDTO getDiscount() {
+		return discount;
+	}
+
+	/**
+	 * Getter for the items in the sale.
+	 * @return A map of item IDs to their corresponding ItemInSale objects.
+	 */
+	public HashMap<Integer, ItemInSale> getItems() {
+		return items;
+	}
+	
 	
 }
