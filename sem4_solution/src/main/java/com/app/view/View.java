@@ -103,13 +103,15 @@ public class View {
 			
 		System.out.println("Discounts: -5.55 SEK, 5%, and 10%");
 		SaleDTO saleDTO = contr.requestDiscount();
-		System.out.println(saleDTO.getString());
-		
+				
 		contr.startPayment(this);
-		
 		contr.endSale();
 	}
 
+	/**
+	 * Calls the application for a sample run of the program
+	 * @throws InvalidItemException when a item ID is not found in the database
+	 */
 	public void viewCalls2() {
 		contr.startSale(22,1302);
 			

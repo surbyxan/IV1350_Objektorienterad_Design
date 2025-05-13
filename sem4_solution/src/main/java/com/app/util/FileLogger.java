@@ -8,6 +8,12 @@ import java.time.format.FormatStyle;
 public class FileLogger implements Loggerlogger {
 	private PrintWriter logStream;
 
+	/**
+	 * Constructs a FileLogger and initializes a PrintWriter
+	 * to write log messages to a file named "log.txt".
+	 * If the file cannot be created or opened, the stack trace 
+	 * is printed and an error message is displayed.
+	 */
 	public FileLogger() {
 		try {
 			logStream = new PrintWriter(new FileWriter("log.txt"), true);

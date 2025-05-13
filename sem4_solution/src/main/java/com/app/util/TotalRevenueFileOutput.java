@@ -3,11 +3,23 @@ package com.app.util;
 import java.io.*;
 import com.app.util.*;
 
+import main.java.com.app.util.RevenueObserver;
+
+/**
+ * Logs total revenue updates to a file named "revenue.txt" and
+ * implements an observer to track and record revenue after each sale.
+ */
 public class TotalRevenueFileOutput implements RevenueObserver {
 	private PrintWriter logStream;
     public double previousTotal;
     public double newTotal;
 
+	/**
+	 * Constructs a TotalRevenueFileOutput object that initializes
+	 * the revenue totals and sets up a PrintWriter to write revenue
+	 * data to a file named "revenue.txt".
+	 * If the file cannot be created or accessed, an error message is printed.
+	 */
 	public TotalRevenueFileOutput() {
 		previousTotal = 0;
 		newTotal = 0;
@@ -22,7 +34,6 @@ public class TotalRevenueFileOutput implements RevenueObserver {
     private double addSaleToPreviousTotal(double totalPrice) {
         newTotal = previousTotal + totalPrice;
         return newTotal; 
-		// todo previous total needs updating
     }
 
     private void updatePreviousTotal() {
