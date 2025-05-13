@@ -3,12 +3,11 @@ package com.app.controller;
 import com.app.model.*;
 import com.app.integration.*;
 import com.app.view.*;
+import com.app.util.*;
 import java.lang.RuntimeException;
 import java.lang.Exception;
-import com.app.util.Loggerlogger;
 import java.util.List;
 import java.util.ArrayList;
-
 
 /**
  * The class responsible for the communication between the view layer and the model layer
@@ -19,6 +18,7 @@ public class Controller {
 	private Integration intgr;
 
 	private List<Loggerlogger> loggers;
+	private List<RevenueObserver> observers;
 
 	/**
 	 * Constructs a new Controller with a specified integration component
@@ -28,6 +28,9 @@ public class Controller {
 	public Controller(Integration intgr) {
 		this.intgr = intgr;
 		this.loggers = new ArrayList<Loggerlogger>();
+		this.observers = new ArrayList<RevenueObserver>();
+		this.observers.add(new TotalRevenueFileOutput());
+		this.observers.add(new TotalRevenueView());
 	}
 
 	/**
@@ -112,6 +115,8 @@ public class Controller {
 
 		view.sendPaymentInfo(pay); // ! 1.2
 
+		notifyObservers(pay); // ! Task 2 a handled here
+
 		Receipt receipt = saleInstance.getReceipt(pay);
 
 		intgr.printReceipt(receipt);
@@ -124,6 +129,12 @@ public class Controller {
 	 */
 	public void endSale() {
 		intgr.sendSaleInfo(saleInstance.getDTO());
+	}
+
+	private void notifyObservers(Payment pay) {
+		for(RevenueObserver observer : observers){
+			observer.addToRevenue(pay.getTotalPrice());
+		}
 	}
 
 	/**
