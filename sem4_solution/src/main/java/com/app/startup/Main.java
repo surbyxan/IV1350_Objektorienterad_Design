@@ -21,7 +21,6 @@ public class Main {
     public static void main(String[] args) {
         Integration intgr = new Integration();
         Controller contr = new Controller(intgr);
-        contr.addLogger(new ConsoleLogger());
         contr.addLogger(new FileLogger());
         View view = new View(contr);
         view.viewCalls();

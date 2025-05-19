@@ -21,6 +21,7 @@ public class Controller {
 	private Integration intgr;
 
 	private List<Loggerlogger> loggers;
+	private ErrorMessageHandler errorMessageHandler;
 	private List<RevenueObserver> observers = new ArrayList<>();
 
 
@@ -31,7 +32,10 @@ public class Controller {
 	 */
 	public Controller(Integration intgr) {
 		this.intgr = intgr;
+
 		this.loggers = new ArrayList<Loggerlogger>();
+		this.errorMessageHandler = new ErrorMessageHandler();
+
 		this.observers = new ArrayList<RevenueObserver>();
 		this.observers.add(new TotalRevenueFileOutput());
 		this.observers.add(new TotalRevenueView());
@@ -79,6 +83,8 @@ public class Controller {
 				// invDatabaseExc.printStackTrace();
 				for(Loggerlogger log : loggers)
 					log.log(invDatabaseExc.getMessage());
+
+				errorMessageHandler.showMessage("Failed to get item, please try again.");
 			}
 
 			if(itemDTO == null)

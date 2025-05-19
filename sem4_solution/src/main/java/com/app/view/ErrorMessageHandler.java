@@ -1,18 +1,18 @@
-package com.app.util;
+package com.app.view;
 import java.time.LocalDateTime;
 import java.time.format.FormatStyle;
 import java.time.format.DateTimeFormatter;
 /**
- * Prints log messages to the terminal using <code>System.out<code/>
+ * Prints error messages to the terminal using <code>System.out<code/>
  */
-public class ConsoleLogger implements Loggerlogger{
+public class ErrorMessageHandler {
+
 	/**
-	 * Prints the specificed string message to <code>System.out<code/>
+	 * Prints the specificed error string message to <code>System.out<code/>
 	 * @param  The message string that will be printed.
 	 */
-	@Override
-	public void log(String message){
-		System.out.println("[" + createTime() + "] " + message);
+	public void showMessage(String message){
+		System.out.println("[" + createTime() + "] ERROR: " + message);
 	}
 
 	private String createTime() {
