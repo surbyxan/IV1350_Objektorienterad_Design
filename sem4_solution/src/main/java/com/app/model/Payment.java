@@ -1,4 +1,10 @@
 package com.app.model;
+import java.util.ArrayList;
+import java.util.List;
+import com.app.util.*;
+
+import com.app.view.*;
+
 
 /**
  * Represents a payment made for a sale, including total price, 
@@ -9,6 +15,7 @@ public class Payment {
 	private double totalPrice;
 	private double amountPaid;
 	private double changeBack;
+	private List<RevenueObserver> observers;
 
 	/**
 	 * Constructs a new Payment object with the specified total price.
@@ -19,6 +26,21 @@ public class Payment {
 		this.totalPrice = totalPrice;
 		this.amountPaid = 0;
 		this.changeBack = 0;
+		this.observers = new ArrayList<>();
+	}
+
+	public void addObserver(RevenueObserver observer) {
+        observers.add(observer);
+    }
+
+	private void notifyObservers() {
+		for (RevenueObserver observer : observers) {
+            observer.addToRevenue(totalPrice);
+        }
+	}
+
+	public void finalizePayment() {
+		notifyObservers();
 	}
 
 	/**

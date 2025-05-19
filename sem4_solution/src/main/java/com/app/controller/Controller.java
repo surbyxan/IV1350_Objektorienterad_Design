@@ -3,6 +3,8 @@ package com.app.controller;
 import com.app.model.*;
 import com.app.integration.*;
 import com.app.view.*;
+
+
 import com.app.util.*;
 import java.lang.RuntimeException;
 import java.lang.Exception;
@@ -19,7 +21,8 @@ public class Controller {
 	private Integration intgr;
 
 	private List<Loggerlogger> loggers;
-	private List<RevenueObserver> observers;
+	private List<RevenueObserver> observers = new ArrayList<>();
+
 
 	/**
 	 * Constructs a new Controller with a specified integration component
@@ -114,9 +117,14 @@ public class Controller {
 	public void startPayment(View view) {
 		Payment pay = saleInstance.initPayment(); // ! 1.1
 
+		for (RevenueObserver observer : observers) {
+        pay.addObserver(observer);
+    	}
+
+		pay.finalizePayment();
+		//notifyObservers(pay); // ! Task 2 a handled here
 		view.sendPaymentInfo(pay); // ! 1.2
 
-		notifyObservers(pay); // ! Task 2 a handled here
 
 		Receipt receipt = saleInstance.getReceipt(pay);
 
@@ -132,11 +140,7 @@ public class Controller {
 		intgr.sendSaleInfo(saleInstance.getDTO());
 	}
 
-	private void notifyObservers(Payment pay) {
-		for(RevenueObserver observer : observers){
-			observer.addToRevenue(pay.getTotalPrice());
-		}
-	}
+	
 
 	/**
 	 * Adds a logger to the list of loggers.
