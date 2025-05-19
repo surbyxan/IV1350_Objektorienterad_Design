@@ -118,13 +118,12 @@ public class Controller {
 		Payment pay = saleInstance.initPayment(); // ! 1.1
 
 		for (RevenueObserver observer : observers) {
-        pay.addObserver(observer);
-    	}
+			pay.addObserver(observer);
+		}
 
-		pay.finalizePayment();
-		//notifyObservers(pay); // ! Task 2 a handled here
 		view.sendPaymentInfo(pay); // ! 1.2
 
+		pay.finalizePayment();// ! Task 2 a handled here
 
 		Receipt receipt = saleInstance.getReceipt(pay);
 

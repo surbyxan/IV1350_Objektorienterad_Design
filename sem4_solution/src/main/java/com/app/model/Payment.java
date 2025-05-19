@@ -29,16 +29,26 @@ public class Payment {
 		this.observers = new ArrayList<>();
 	}
 
+	/**
+	 * Adds an observer to the list of observers
+	 *
+	 * @param observer the observer to be added
+	 */
 	public void addObserver(RevenueObserver observer) {
-        observers.add(observer);
-    }
+		observers.add(observer);
+	}
 
 	private void notifyObservers() {
 		for (RevenueObserver observer : observers) {
-            observer.addToRevenue(totalPrice);
-        }
+			observer.addToRevenue(totalPrice);
+		}
 	}
 
+	/**
+	 * Tells the object that payment is complete.
+	 * Notifies observers
+	 *
+	 */
 	public void finalizePayment() {
 		notifyObservers();
 	}
