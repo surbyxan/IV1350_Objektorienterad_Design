@@ -39,7 +39,7 @@ public class InvalidItemExceptionTest {
             contr.enterItem(testItemID);
             fail("Exception was not thrown");
         } catch (InvalidItemException e) {
-            String expectedString =  "This item ID is invalid: 100.";
+            String expectedString =  "This item ID is invalid: 100.\n\n";
             assertEquals(expectedString, e.getMessage());
         }
         

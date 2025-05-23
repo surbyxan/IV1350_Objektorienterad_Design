@@ -128,7 +128,8 @@ public class View {
 			}
 		}
 		catch (InvalidItemException invalidItemExc) {
-			System.out.println(invalidItemExc.getMessage());
+			// System.out.println(invalidItemExc.getMessage());
+			inventoryItemErrorMessage(invalidItemExc.getItemID());
 		}
 			
 		try {
@@ -144,7 +145,8 @@ public class View {
 			}
 		}
 		catch (InvalidItemException invalidItemExc) {
-			System.out.println(invalidItemExc.getMessage());
+			// System.out.println(invalidItemExc.getMessage());
+			inventoryItemErrorMessage(invalidItemExc.getItemID());
 		}
 			
 		try {
@@ -160,7 +162,8 @@ public class View {
 			}
 		}
 		catch (InvalidItemException invalidItemExc) {
-			System.out.println(invalidItemExc.getMessage());
+			// System.out.println(invalidItemExc.getMessage());
+			inventoryItemErrorMessage(invalidItemExc.getItemID());
 		}
 			
 		try {
@@ -176,9 +179,12 @@ public class View {
 			}
 		}
 		catch (InvalidItemException invalidItemExc) {
-			System.out.println(invalidItemExc.getMessage());
+			// System.out.println(invalidItemExc.getMessage());
+			// System.out.println("Something went wrong when trying to fetch item ID: " + itemID +" \nPlease try again!\n");
+			inventoryItemErrorMessage(invalidItemExc.getItemID());
 		}
-			
+		
+		System.out.println("These discounts are applied:");
 		System.out.println("Discounts: -5.55 SEK, 5%, and 10%");
 		SaleDTO saleDTO = contr.requestDiscount();
 		System.out.println(saleDTO.getString());
@@ -186,5 +192,11 @@ public class View {
 		contr.startPayment(this);
 		
 		contr.endSale();
+	}
+
+	private void inventoryItemErrorMessage(int itemID) {
+		System.out.println("Something went wrong when trying to fetch item ID: " + itemID +". The provided id is invalid.\nPlease try again!\n");
+		// System.out.println("Could not fetch item with id: " + itemID + ". The provided id is invalid.\nPlease try again!\n");
+		// System.out.println("Invalid item ID: " + itemID + ". There exists no item with that ID\nPlease consider muy painful death! pls\n");
 	}
 }

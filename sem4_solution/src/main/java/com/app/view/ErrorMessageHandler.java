@@ -12,7 +12,8 @@ public class ErrorMessageHandler {
 	 * @param  The message string that will be printed.
 	 */
 	public void showMessage(String message){
-		System.out.println("[" + createTime() + "] ERROR: " + message);
+		System.out.println("----------- InventoryDatabaseException was thrown here ------------\n[" + createTime() + "] ERROR: " 
+							+ message + "\n-------------------------------------------------------------------\n");
 	}
 
 	private String createTime() {

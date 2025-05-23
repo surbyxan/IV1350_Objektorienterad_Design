@@ -15,7 +15,7 @@ public class InvalidItemException extends Exception {
      * @param itemID the invalid itemID that was entered in view.
      */
     public InvalidItemException(int itemID) {
-        super("This item ID is invalid: " + itemID + ".");
+        super("This item ID is invalid: " + itemID + ".\n\n");
         this.itemID = itemID;
     }
 
