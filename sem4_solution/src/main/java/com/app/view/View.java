@@ -196,7 +196,5 @@ public class View {
 
 	private void inventoryItemErrorMessage(int itemID) {
 		System.out.println("Something went wrong when trying to fetch item ID: " + itemID +". The provided id is invalid.\nPlease try again!\n");
-		// System.out.println("Could not fetch item with id: " + itemID + ". The provided id is invalid.\nPlease try again!\n");
-		// System.out.println("Invalid item ID: " + itemID + ". There exists no item with that ID\nPlease consider muy painful death! pls\n");
 	}
 }
