@@ -13,7 +13,6 @@ import com.app.util.*;
 public class TotalRevenueView extends TotalRevenue {
     
     public TotalRevenueView() {
-        out = System.out;
     }
 
 	/**
@@ -21,8 +20,9 @@ public class TotalRevenueView extends TotalRevenue {
 	 *
 	 * @param printThisString is the string that will show the updated revenue
 	 */
+    @Override
     public void doShowTotalIncome(String printThisString) {
-       out.println(printThisString);
+       System.out.println(printThisString);
     }
 
     /**
@@ -30,7 +30,8 @@ public class TotalRevenueView extends TotalRevenue {
      * 
      * @param e the exception to be handled.
      */
-    public void HandleErrors (Exception e) {
+    @Override
+    public void handleErrors (Exception e) {
 		e.printStackTrace();
 	}
     

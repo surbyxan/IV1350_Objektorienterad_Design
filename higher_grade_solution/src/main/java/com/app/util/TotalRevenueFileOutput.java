@@ -29,6 +29,7 @@ public class TotalRevenueFileOutput extends TotalRevenue {
 	 *
 	 * @param printThisString is the string to be printed to the Log file
 	 */
+	@Override
 	public void doShowTotalIncome(String printThisString) {
 		out.println(printThisString);
 	}
@@ -38,7 +39,8 @@ public class TotalRevenueFileOutput extends TotalRevenue {
      * 
      * @param e the exception to be handled.
      */
-	public void HandleErrors (Exception e) {
+	@Override
+	public void handleErrors (Exception e) {
 		e.printStackTrace();
 	}
 

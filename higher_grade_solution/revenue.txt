@@ -1,14 +1,14 @@
 
----------------------------------------
+----------------- REVENUE -----------------
 The previous total revenue was:      0.0 SEK
 The revenue from the latest sale is: 48.88035 SEK
 The new total revenue is:            48.88035 SEK
----------------------------------------
+------------------------------------------
 
 
----------------------------------------
+----------------- REVENUE -----------------
 The previous total revenue was:      48.88035 SEK
 The revenue from the latest sale is: 28.78785 SEK
 The new total revenue is:            77.6682 SEK
----------------------------------------
+------------------------------------------
 
