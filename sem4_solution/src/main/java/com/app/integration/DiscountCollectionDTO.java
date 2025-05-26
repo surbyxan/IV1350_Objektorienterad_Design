@@ -1,25 +1,27 @@
 package com.app.integration;
 
+import main.java.com.app.integration.ItemDiscount;
+
 /**
  * The class responsible for gathering all discounts that can be applied to the sale.
  */
 public class DiscountCollectionDTO {
 
-	private double itemDiscount;
-	private double priceDiscountPercentage;
-	private double customerDiscountPercentage;
+	private ItemDiscount itemDiscount;
+	private PriceDiscount priceDiscount;
+	private CustomerDiscount customerDiscount;
 
 	/**
 	 * Creates a new discount collection containing item, price, and customer discounts.
 	 *
 	 * @param itemDiscount the discount for the list of items
-	 * @param priceDiscountPercentage the percentage discount based on the total price
-	 * @param customerDiscountPercentage the percentage discount fot the speciffic customer
+	 * @param priceDiscount the percentage discount based on the total price
+	 * @param customerDiscount the percentage discount fot the speciffic customer
 	 */
-	public DiscountCollectionDTO(double itemDiscount, double priceDiscountPercentage, double customerDiscountPercentage) {
+	public DiscountCollectionDTO(ItemDiscount itemDiscount, PriceDiscount priceDiscount, CustomerDiscount customerDiscount) {
 		this.itemDiscount = itemDiscount;
-		this.priceDiscountPercentage = priceDiscountPercentage;
-		this.customerDiscountPercentage = customerDiscountPercentage;
+		this.priceDiscount = priceDiscount;
+		this.customerDiscount = customerDiscount;
 
 	}
 
@@ -28,8 +30,8 @@ public class DiscountCollectionDTO {
 	 * 
 	 * @return the discounts for the items
 	 */
-	public double getItemDiscount() {
-		return itemDiscount;
+	public double getItemDiscountAmount() {
+		return itemDiscount.getDiscount();
 	}
 
 	/**
@@ -38,7 +40,7 @@ public class DiscountCollectionDTO {
 	 * @return the discount percentage from the total price
 	 */
 	public double getPriceDiscountPercentage() {
-		return priceDiscountPercentage;
+		return priceDiscountPercentage.getDiscount();
 	}
 
 	/**
@@ -47,6 +49,6 @@ public class DiscountCollectionDTO {
 	 * @return the discount percentage the customer is eligable for
 	 */
 	public double getCustomerDiscountPercentage() {
-		return customerDiscountPercentage;
+		return customerDiscountPercentage.getDiscount();
 	}
 }
