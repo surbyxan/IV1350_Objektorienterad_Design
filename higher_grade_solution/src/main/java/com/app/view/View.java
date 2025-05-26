@@ -25,7 +25,7 @@ public class View {
 	 * @param pay The {@code Payment} object containing payment data.
 	 */
 	public void sendPaymentInfo(Payment pay) {
-		System.out.println(pay.getTotalPrice()); 
+		System.out.println("Amount to pay: " + pay.getTotalPrice()); 
 		pay.setAmountPaid(pay.getTotalPrice());
 		pay.setChangeBack(0);
 	}
@@ -112,6 +112,7 @@ public class View {
 		
 		printReceipt(receipt);
 		contr.endSale();
+		System.out.println("\n----END OF SALE----\n");
 	}
 
 	/**
@@ -199,6 +200,8 @@ public class View {
 		printReceipt(receipt);
 		
 		contr.endSale();
+		System.out.println("\n----END OF SALE----\n");
+
 	}
 
 	private void inventoryItemErrorMessage(int itemID) {
@@ -207,7 +210,12 @@ public class View {
 
 	private StringBuilder receiptString;
 
-	private void printReceipt(Receipt receipt){
+	/**
+	 * Format and print the recepeipt.
+	 * 
+	 * @param receipt the receipt that contains the information to be printed.
+	 */
+	public void printReceipt(Receipt receipt){
 		receiptString = new StringBuilder();
 
 		addHeader(receipt);
