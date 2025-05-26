@@ -24,6 +24,17 @@ public class Item {
 	}
 
 	/**
+	 * Constructs an {@code Item} using data from an {@code Item}.
+	 * @param item The {@code Item} containing item data.
+	 */
+	public Item(Item item) {
+		this.itemID = item.getID();
+		this.itemDescription = item.getDescription();
+		this.itemPrice = item.getPrice();
+		this.itemVATPrice = item.getVATPrice();
+	}
+
+	/**
 	 * Returns the unique ID of the item.
 	 * @return The item ID.
 	 */

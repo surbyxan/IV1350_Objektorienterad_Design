@@ -50,7 +50,8 @@ public class View {
 			}
 		}
 		catch (InvalidItemException invalidItemExc) {
-			System.out.println(invalidItemExc.getMessage());
+			inventoryItemErrorMessage(invalidItemExc.getItemID());
+
 		}
 			
 		try {
@@ -66,7 +67,8 @@ public class View {
 			}
 		}
 		catch (InvalidItemException invalidItemExc) {
-			System.out.println(invalidItemExc.getMessage());
+			inventoryItemErrorMessage(invalidItemExc.getItemID());
+
 		}
 			
 		try {
@@ -82,7 +84,8 @@ public class View {
 			}
 		}
 		catch (InvalidItemException invalidItemExc) {
-			System.out.println(invalidItemExc.getMessage());
+			inventoryItemErrorMessage(invalidItemExc.getItemID());
+
 		}
 			
 		try {
@@ -98,13 +101,16 @@ public class View {
 			}
 		}
 		catch (InvalidItemException invalidItemExc) {
-			System.out.println(invalidItemExc.getMessage());
+			inventoryItemErrorMessage(invalidItemExc.getItemID());
+
 		}
 			
 		System.out.println("Discounts: -5.55 SEK, 5%, and 10%");
 		SaleDTO saleDTO = contr.requestDiscount();
 				
-		contr.startPayment(this);
+		Receipt receipt = contr.startPayment(this);
+		
+		printReceipt(receipt);
 		contr.endSale();
 	}
 
@@ -187,9 +193,10 @@ public class View {
 		System.out.println("These discounts are applied:");
 		System.out.println("Discounts: -5.55 SEK, 5%, and 10%");
 		SaleDTO saleDTO = contr.requestDiscount();
-		System.out.println(saleDTO.getString());
+				
+		Receipt receipt = contr.startPayment(this);
 		
-		contr.startPayment(this);
+		printReceipt(receipt);
 		
 		contr.endSale();
 	}
@@ -197,4 +204,65 @@ public class View {
 	private void inventoryItemErrorMessage(int itemID) {
 		System.out.println("Something went wrong when trying to fetch item ID: " + itemID +". The provided id is invalid.\nPlease try again!\n");
 	}
+
+	private StringBuilder receiptString;
+
+	private void printReceipt(Receipt receipt){
+		receiptString = new StringBuilder();
+
+		addHeader(receipt);
+		// Iterate over each ItemInSale in saleDTO
+		for (ItemInSale item : receipt.getSaleDTO().getItemsInSale().values()) {
+			addItemToReceipt(receipt, item);
+		}
+		addFooter(receipt);
+
+		System.out.println(receiptString.toString());
+
+    }
+   
+    public void printFakeReceipt(  ) {
+        
+        System.out.println( "this is a fake receipt" );
+    }
+
+	private void addHeader(Receipt receipt) {
+		
+		receiptString.append("---------- Begin receipt ----------\n");
+		receiptString.append("Time of Sale: " + receipt.getDateTime().format(receipt.getFormatter()) + "\n\n");
+	}
+
+	private void addItemToReceipt(Receipt receipt, ItemInSale item) {
+		String description = item.getItem().getDescription();
+		int count = item.getCount();
+		double price = item.getItem().getPrice() + item.getItem().getVATPrice();
+		double itemTotalPrice = count * price; 
+
+		receiptString.append(description+ "        " + count + " X " + price + "    " + itemTotalPrice + " SEK\n");
+
+	}
+
+	private void addFooter(Receipt receipt) {
+		receiptString.append(getTotalWithAndWithoutDiscountAsString(receipt.getSaleDTO()));
+		
+		
+		receiptString.append("\nTotal:" + "                " + receipt.getTotal() + "\n");
+		receiptString.append("VAT:  " + receipt.getVAT() + "\n\n");
+
+		
+		receiptString.append("Cash:" + "                " + receipt.getPaid() + "SEK\n");
+		receiptString.append("Change:" +  "             " + receipt.getChange() + "SEK\n");
+		receiptString.append("---------- End receipt ----------\n");
+	}
+	
+	private String getTotalWithAndWithoutDiscountAsString(SaleDTO saleDTO) {
+		return new String("Total Before Discount:     " + saleDTO.getTotBeforeDiscount() + 
+						  "\n\nDiscounts:" +
+						  "\n  Item Discount:       " + saleDTO.getDiscount().getItemDiscount() + " SEK" +
+						  "\n  Total Price Discount:  " + (saleDTO.getDiscount().getPriceDiscountPercentage() *100)+ "%" +
+						  "\n  Customer Discount:     " + (saleDTO.getDiscount().getCustomerDiscountPercentage() *100) + "%" +
+						  "\n  Total Discount:        " + saleDTO.getTotAppliedDiscount() 
+						  );
+	}
+
 }

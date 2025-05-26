@@ -18,6 +18,15 @@ public class ItemInSale {
 		this.item = item;
 		this.count = 1;
 	}
+	
+	/**
+	 * Constructs a new {@code ItemInSale} object that is a copy of parameter.
+	 * @param item The {@code ItemInSale} being cloned.
+	 */
+	public ItemInSale(ItemInSale item) {
+		this.item = new Item(item.getItem());
+		this.count = item.getCount();
+	}
 
 	/**
 	 * Increases the count (quantity) of this item in the sale by 1.

@@ -60,8 +60,8 @@ public class Integration {
      * 
      * @param receipt the receipt to be printed
      */
-    public void printReceipt(Receipt receipt) {
-        prt.printReceipt(receipt);
+    public void printFakeReceipt(Receipt receipt) {
+        // prt.printFakeReceipt(receipt);
     }
 
     /**

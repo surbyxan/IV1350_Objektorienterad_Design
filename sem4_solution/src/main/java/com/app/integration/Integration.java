@@ -55,13 +55,14 @@ public class Integration {
         return new DiscountCollectionDTO(itemDiscount, priceDiscountPercentage, customerDiscountPercentage);
     }
 
+
     /**
      * Prints the receipt from the printer
      * 
      * @param receipt the receipt to be printed
      */
-    public void printReceipt(Receipt receipt) {
-        prt.printReceipt(receipt);
+    public void printFakeReceipt(Receipt receipt) {
+        // prt.printFakeReceipt(receipt);
     }
 
     /**

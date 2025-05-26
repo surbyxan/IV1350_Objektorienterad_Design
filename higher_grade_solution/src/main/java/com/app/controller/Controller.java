@@ -120,7 +120,7 @@ public class Controller {
 	 * Initiates the payment for the current sale and handles the receipt.
 	 * @param view the view component responsible for handling payment interaction
  	 */
-	public void startPayment(View view) {
+	public Receipt startPayment(View view) {
 		Payment pay = saleInstance.initPayment(); // ! 1.1
 
 		for (RevenueObserver observer : observers) {
@@ -133,7 +133,9 @@ public class Controller {
 
 		Receipt receipt = saleInstance.getReceipt(pay);
 
-		intgr.printReceipt(receipt);
+		intgr.printFakeReceipt(receipt);
+
+		return receipt;
 	}
 
 	// * END SALE
