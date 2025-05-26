@@ -51,7 +51,7 @@ public class Sale {
 
 		this.availableChange = getChange();
 
-		this.discount = new DiscountCollectionDTO(0, 0, 0);
+		this.discount = new DiscountCollectionDTO(null, null, null);
 		this.items = new HashMap<>();
 	}
 
@@ -116,7 +116,7 @@ public class Sale {
 		discount = discountCollectionDTO;
 		totBeforeDiscount = runningTotal;
 
-		runningTotal = runningTotal - discountCollectionDTO.getItemDiscount();
+		runningTotal = runningTotal - discountCollectionDTO.getItemDiscountAmount();
 		runningTotal *= (1.0 - discountCollectionDTO.getPriceDiscountPercentage());
 		runningTotal *= (1.0 - discountCollectionDTO.getCustomerDiscountPercentage());
 

@@ -258,7 +258,7 @@ public class View {
 	private String getTotalWithAndWithoutDiscountAsString(SaleDTO saleDTO) {
 		return new String("Total Before Discount:     " + saleDTO.getTotBeforeDiscount() + 
 						  "\n\nDiscounts:" +
-						  "\n  Item Discount:       " + saleDTO.getDiscount().getItemDiscount() + " SEK" +
+						  "\n  Item Discount:       " + saleDTO.getDiscount().getItemDiscountAmount() + " SEK" +
 						  "\n  Total Price Discount:  " + (saleDTO.getDiscount().getPriceDiscountPercentage() *100)+ "%" +
 						  "\n  Customer Discount:     " + (saleDTO.getDiscount().getCustomerDiscountPercentage() *100) + "%" +
 						  "\n  Total Discount:        " + saleDTO.getTotAppliedDiscount() 

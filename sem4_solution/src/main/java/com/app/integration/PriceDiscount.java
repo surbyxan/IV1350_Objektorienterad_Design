@@ -1,6 +1,6 @@
 package com.app.integration;
 
-public class PriceDiscount {
+public class PriceDiscount implements Discount{
 	private double priceDiscountPercentage;
 
 	public PriceDiscount(double priceDiscount) {

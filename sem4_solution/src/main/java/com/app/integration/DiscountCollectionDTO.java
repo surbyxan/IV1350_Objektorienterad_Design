@@ -1,6 +1,6 @@
 package com.app.integration;
 
-import main.java.com.app.integration.ItemDiscount;
+import com.app.integration.ItemDiscount;
 
 /**
  * The class responsible for gathering all discounts that can be applied to the sale.
@@ -18,7 +18,7 @@ public class DiscountCollectionDTO {
 	 * @param priceDiscount the percentage discount based on the total price
 	 * @param customerDiscount the percentage discount fot the speciffic customer
 	 */
-	public DiscountCollectionDTO(ItemDiscount itemDiscount, PriceDiscount priceDiscount, CustomerDiscount customerDiscount) {
+	public DiscountCollectionDTO(Discount itemDiscount, Discount priceDiscount, Discount customerDiscount) {
 		this.itemDiscount = itemDiscount;
 		this.priceDiscount = priceDiscount;
 		this.customerDiscount = customerDiscount;

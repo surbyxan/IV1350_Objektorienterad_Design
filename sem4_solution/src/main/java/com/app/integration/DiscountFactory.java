@@ -2,10 +2,6 @@ package com.app.integration;
 
     
 public class DiscountFactory {
-    public enum DiscountType {
-        
-        
-    CUSTustomerD,
 
 
 
@@ -20,5 +16,29 @@ public class DiscountFactory {
      */
     public static DiscountFactory getFactory() {
         return FACTORY;
+    }
+
+    public Discount newDiscount(DiscountType type, double value) {
+        switch (type) {
+            case CustomerDiscount:
+                return new CustomerDiscount(value);
+                break;
+            case ItemDiscount:
+                return new ItemDiscount(value);
+                break;
+            default:
+            case PriceDiscount:
+                return new PriceDiscount(value);
+                break;
+        }
+    }
+
+    /**
+     * Discount types that can be created by the factory
+     */
+    public enum DiscountType {
+        CustomerDiscount,
+        ItemDiscount,
+        PriceDiscount
     }
 }

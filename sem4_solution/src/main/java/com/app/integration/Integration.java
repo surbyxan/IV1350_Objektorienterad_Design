@@ -48,11 +48,18 @@ public class Integration {
      */
     public DiscountCollectionDTO fetchDiscount(SaleDTO saleDTO) {
 
-        double itemDiscount = dis.discountDBQuery(1, saleDTO);
-        double priceDiscountPercentage = dis.discountDBQuery(2, saleDTO);
-        double customerDiscountPercentage = dis.discountDBQuery(3, saleDTO);
+        DiscountFactory factory = DiscountFactory.getFactory();
 
-        return new DiscountCollectionDTO(itemDiscount, priceDiscountPercentage, customerDiscountPercentage);
+        double itemDiscountValue = dis.discountDBQuery(1, saleDTO);
+        Discount itemDiscount = factory.newDiscount(DiscountFactory.DiscountType.ItemDiscount, itemDiscountValue);
+
+        double priceDiscountPercentage = dis.discountDBQuery(2, saleDTO);
+        Discount priceDiscount = factory.newDiscount(DiscountFactory.DiscountType.PriceDiscount, priceDiscountPercentage);
+
+        double customerDiscountPercentage = dis.discountDBQuery(3, saleDTO);
+        Discount customerDiscount = factory.newDiscount(DiscountFactory.DiscountType.CustomerDiscount, customerDiscountPercentage);
+
+        return new DiscountCollectionDTO(itemDiscount, priceDiscount, customerDiscount);
     }
 
 
