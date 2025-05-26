@@ -98,7 +98,7 @@ public class ViewCallsTest {
 
         String printout = printoutBuffer.toString();
         String expectedOutput = "Information of the sale has been sent to the external accounting system";
-        assertTrue(printout.contains(expectedOutput), "Incorrect message was displayed.");
+        assertTrue(printout.contains(expectedOutput), "Incorrect message when sending information to external accounting system was displayed.");
     }
 
     @Test 
@@ -108,6 +108,16 @@ public class ViewCallsTest {
 
         String printout = printoutBuffer.toString();
         String expectedOutput = "Information of the sale has been sent to the external inventory system";
-        assertTrue(printout.contains(expectedOutput), "Incorrect message was displayed.");
+        assertTrue(printout.contains(expectedOutput), "Incorrect message when sending information to external inventory system was displayed.");
+    }
+
+    @Test 
+    void correctAmountToBePaid() {
+
+        view.viewCalls();
+       
+        String printout = printoutBuffer.toString();
+        String expectedOutput = "Amount to pay: 48.88035";
+        assertTrue(printout.contains(expectedOutput), "Incorrect new total after applied discounts was displayed.");
     }
 }

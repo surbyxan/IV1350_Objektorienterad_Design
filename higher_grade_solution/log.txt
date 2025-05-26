@@ -1,2 +1,2 @@
-[26 maj 2025 15:14:46] Connection to inventory database could not be established. When trying to fetch ItemDTO for id: 8.
-[26 maj 2025 15:14:46] Connection to inventory database could not be established. When trying to fetch ItemDTO for id: 8.
+[26 maj 2025 15:17:38] Connection to inventory database could not be established. When trying to fetch ItemDTO for id: 8.
+[26 maj 2025 15:17:38] Connection to inventory database could not be established. When trying to fetch ItemDTO for id: 8.
