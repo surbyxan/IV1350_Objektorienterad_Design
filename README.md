@@ -8,3 +8,7 @@
 - Navigate to `sem4_solution` directory
 - run `mvn install` and then `mvn exec:java`
 - See `revenue.txt` and `log.txt` files
+
+## Higher Grade Tasks
+- Navigate to `higher_grade_solution` directory
+- run `mvn install` and then `mvn exec:java`
