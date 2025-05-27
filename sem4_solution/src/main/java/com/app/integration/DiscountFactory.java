@@ -1,9 +1,10 @@
 package com.app.integration;
 
-    
+/**
+ * A singleton discount factory that can create instances of the 
+ * three discount classes and return them using the interface {@code Discount}.
+ */
 public class DiscountFactory {
-
-
 
     private static final DiscountFactory FACTORY = new DiscountFactory();
 
@@ -18,18 +19,23 @@ public class DiscountFactory {
         return FACTORY;
     }
 
+    /**
+     * Creates and returns a new discount of specified type using
+     * the {@code Discount} interface.
+     * 
+     * @return The specified discount type with the desired value.
+     */
     public Discount newDiscount(DiscountType type, double value) {
         switch (type) {
             case CustomerDiscount:
                 return new CustomerDiscount(value);
-                break;
             case ItemDiscount:
                 return new ItemDiscount(value);
-                break;
-            default:
             case PriceDiscount:
                 return new PriceDiscount(value);
-                break;
+            default:
+                return null;
+                
         }
     }
 

@@ -7,9 +7,9 @@ import com.app.integration.ItemDiscount;
  */
 public class DiscountCollectionDTO {
 
-	private ItemDiscount itemDiscount;
-	private PriceDiscount priceDiscount;
-	private CustomerDiscount customerDiscount;
+	private Discount itemDiscount;
+	private Discount priceDiscount;
+	private Discount customerDiscount;
 
 	/**
 	 * Creates a new discount collection containing item, price, and customer discounts.
@@ -40,7 +40,7 @@ public class DiscountCollectionDTO {
 	 * @return the discount percentage from the total price
 	 */
 	public double getPriceDiscountPercentage() {
-		return priceDiscountPercentage.getDiscount();
+		return priceDiscount.getDiscount();
 	}
 
 	/**
@@ -49,6 +49,6 @@ public class DiscountCollectionDTO {
 	 * @return the discount percentage the customer is eligable for
 	 */
 	public double getCustomerDiscountPercentage() {
-		return customerDiscountPercentage.getDiscount();
+		return customerDiscount.getDiscount();
 	}
 }
