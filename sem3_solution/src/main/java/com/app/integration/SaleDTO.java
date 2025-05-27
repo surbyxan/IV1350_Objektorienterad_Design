@@ -11,21 +11,21 @@ import com.app.model.*;
  */
 public class SaleDTO {
 
-    private int cashierID;
-    private int customerID;
-    private int saleID;
-	private LocalDateTime timeOfSale;
-	private double runningVAT;
-	private double runningItemPrice;
-	private double runningTotal;
-	private double runningItemCount;
-    private double availableChange;
-	private double totBeforeDiscount;
-	private double totAppliedDiscount;
+    private final int cashierID;
+    private final int customerID;
+    private final int saleID;
+	private final LocalDateTime timeOfSale;
+	private final double runningVAT;
+	private final double runningItemPrice;
+	private final double runningTotal;
+	private final double runningItemCount;
+    private final double availableChange;
+	private final double totBeforeDiscount;
+	private final double totAppliedDiscount;
 
-	private DiscountCollectionDTO discount;
+	private final DiscountCollectionDTO discount;
 
-	private HashMap<Integer, ItemInSale> items;
+	private final HashMap<Integer, ItemInSale> items;
 
 	/**
 	 * Creates a new {@code SaleDTO} by extracting data from the given {@code Sale} object.
