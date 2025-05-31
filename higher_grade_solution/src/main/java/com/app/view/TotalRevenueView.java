@@ -1,11 +1,10 @@
 package com.app.view;
 
+import java.io.*;
 import com.app.controller.*;
 import com.app.integration.*;
 import com.app.view.*;
 import com.app.util.*;
-
-
 
 import com.app.model.*;
 import com.app.util.*;
@@ -13,6 +12,9 @@ import com.app.util.*;
 public class TotalRevenueView extends TotalRevenue {
     
     public TotalRevenueView() {
+	// If structure was not specified in task description
+	// This could have been used:
+	// out = new PrintWriter(System.out);
     }
 
 	/**
