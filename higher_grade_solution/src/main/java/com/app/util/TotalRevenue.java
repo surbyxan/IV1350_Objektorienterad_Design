@@ -3,6 +3,10 @@ package com.app.util;
 import java.io.*;
 import java.io.IOException;
 
+/**
+ * An abstract Total Revenue tracker that delegates
+ * How the revenue result is written to subclasses.
+ */
 public abstract class TotalRevenue implements RevenueObserver {
 
     public PrintWriter out;

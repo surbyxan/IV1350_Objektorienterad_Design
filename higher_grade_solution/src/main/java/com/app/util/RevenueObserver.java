@@ -3,7 +3,7 @@ package com.app.util;
 // import com.app.view.*;
 
 /**
- *  This listner interface is listneing for updates in the
+ *  This listener interface is listening for updates in the
  *  stores total revenue. The class that is interested in such
  *  updated implements this interface, and the object
  *  created with that class is registered with 
