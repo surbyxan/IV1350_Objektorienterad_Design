@@ -68,36 +68,39 @@ public class Controller {
 	 * @return a {@code SaleDTO} representing the updated state of the sale after applying discounts
 	 */
 	public SaleDTO requestDiscount() {
-		SaleDTO saleDTO = saleInstance.getDTO(); // ! 1.1
+		SaleDTO saleDTO = saleInstance.getDTO(); 
 
-		DiscountCollectionDTO discountData = intgr.fetchDiscount(saleDTO); // ! 1.2
+		DiscountCollectionDTO discountData = intgr.fetchDiscount(saleDTO); 
 
-		saleInstance.applyDiscount(discountData); // ! 1.3
+		saleInstance.applyDiscount(discountData); 
 
 		return saleInstance.getDTO();
 	}
 
-	// * PAYMENT 
 	/**
-	 * Initiates the payment for the current sale and handles the receipt.
-	 * @param view the view component responsible for handling payment interaction
+	 * Initiates the payment for the current sale 
 	 * 
-	 * @return the receipt that was created from sale and payment.
+	 * @return the Payment that was created from the sale.
  	 */
-	public Receipt startPayment(View view) {
-		Payment pay = saleInstance.initPayment(); // ! 1.1
+ 	public Payment startPayment() {
+		Payment pay = saleInstance.initPayment(); 
+		return pay; 
+	}
 
-		view.sendPaymentInfo(pay); // ! 1.2
-
+	
+	/**
+	 * @param pay to initiate the creation of the receipt.
+	 * 
+	 * @return Receipt that was created to the view.
+	 */
+	public Receipt createReceipt(Payment pay){
 		Receipt receipt = saleInstance.getReceipt(pay);
 
 		intgr.printFakeReceipt(receipt);
 
 		return receipt;
 	}
-
-	// * END SALE
-
+	
 	/**
 	 * Finalizes the sale by sending the completed sale information to external systems.
 	 */

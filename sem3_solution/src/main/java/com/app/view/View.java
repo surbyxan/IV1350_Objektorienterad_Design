@@ -69,7 +69,8 @@ public class View {
 		System.out.println("Discounts: -5.55 SEK, 5%, and 10%");
 		SaleDTO saleDTO = contr.requestDiscount();
 
-		Receipt receipt = contr.startPayment(this);
+		Payment pay = contr.startPayment();
+		Receipt receipt = contr.createReceipt(pay);
 		
 		printReceipt(receipt);
 
