@@ -2,7 +2,6 @@ package com.app.controller;
 
 import com.app.model.*;
 import com.app.integration.*;
-import com.app.view.*;
 
 /**
  * The class responsible for the communication between the view layer and the model layer
@@ -78,7 +77,7 @@ public class Controller {
 	}
 
 	/**
-	 * Initiates the payment for the current sale 
+	 * Initiates the payment for the current sale. 
 	 * 
 	 * @return the Payment that was created from the sale.
  	 */
@@ -89,6 +88,8 @@ public class Controller {
 
 	
 	/**
+	 * Creates a new receipt using the provided payment.
+	 * 
 	 * @param pay to initiate the creation of the receipt.
 	 * 
 	 * @return Receipt that was created to the view.

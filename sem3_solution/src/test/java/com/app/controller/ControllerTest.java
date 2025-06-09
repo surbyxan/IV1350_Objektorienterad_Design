@@ -1,8 +1,8 @@
 package com.app.controller;
 
 import com.app.integration.*;
-import com.app.view.View;
 import com.app.model.*;
+import com.app.view.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,7 +13,7 @@ public class ControllerTest {
     private Controller controller;
     private Integration integration;
     private View view;
-
+   
     @BeforeEach
     void setup() {
         integration = new Integration();
