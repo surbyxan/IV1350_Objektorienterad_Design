@@ -18,7 +18,7 @@ public class View {
 		this.contr = contr;
 	}
 
-	private int itemID = 2;
+	
 
 	/**
 	 * Simulates scanning an item by its ID.
@@ -69,8 +69,11 @@ public class View {
 		System.out.println("Discounts: -5.55 SEK, 5%, and 10%");
 		SaleDTO saleDTO = contr.requestDiscount();
 
+		// Payment Diagram
 		Payment pay = contr.startPayment();
 		setAmountPaid(pay);
+
+		// createReceipt Diagram
 		Receipt receipt = contr.createReceipt(pay);
 		
 		printReceipt(receipt);
