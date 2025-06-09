@@ -36,7 +36,7 @@ public class View {
 	 *
 	 * @param pay The {@code Payment} object containing payment data.
 	 */
-	public void sendPaymentInfo(Payment pay) {
+	public void setAmountPaid(Payment pay) {
 		System.out.println(pay.getTotalPrice()); 
 		pay.setAmountPaid(pay.getTotalPrice());
 		pay.setChangeBack(0);
@@ -70,6 +70,7 @@ public class View {
 		SaleDTO saleDTO = contr.requestDiscount();
 
 		Payment pay = contr.startPayment();
+		setAmountPaid(pay);
 		Receipt receipt = contr.createReceipt(pay);
 		
 		printReceipt(receipt);
