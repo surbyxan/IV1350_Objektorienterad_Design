@@ -86,7 +86,17 @@ public class Controller {
 		return pay; 
 	}
 
-	
+	/**
+	 * Sets payment information for the view.
+	 * Displays the total price, sets the amount paid, and assumes no change is needed.
+	 *
+	 * @param pay The {@code Payment} object containing payment data.
+	 */
+	public void setAmountPaid(Payment pay) {
+		System.out.println("The price to pay is: "+ pay.getTotalPrice()); 
+		pay.setAmountPaid(pay.getTotalPrice());
+		pay.setChangeBack(0);
+	}
 	/**
 	 * Creates a new receipt using the provided payment.
 	 * 

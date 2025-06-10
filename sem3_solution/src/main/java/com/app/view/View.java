@@ -30,17 +30,7 @@ public class View {
 		ItemInSaleDTO showItemInSale = contr.enterItem(itemID);
 	}
 
-	/**
-	 * Sets payment information for the view.
-	 * Displays the total price, sets the amount paid, and assumes no change is needed.
-	 *
-	 * @param pay The {@code Payment} object containing payment data.
-	 */
-	public void setAmountPaid(Payment pay) {
-		System.out.println("The price to pay is: "+ pay.getTotalPrice()); 
-		pay.setAmountPaid(pay.getTotalPrice());
-		pay.setChangeBack(0);
-	}
+	
 
 	/**
 	 * Calls the application for a sample run of the program
@@ -71,7 +61,7 @@ public class View {
 
 		// Payment Diagram
 		Payment pay = contr.startPayment();
-		setAmountPaid(pay);
+		contr.setAmountPaid(pay);
 
 		// createReceipt Diagram
 		Receipt receipt = contr.createReceipt(pay);
