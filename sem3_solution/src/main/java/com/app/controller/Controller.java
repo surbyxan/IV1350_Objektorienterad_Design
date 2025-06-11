@@ -96,10 +96,7 @@ public class Controller {
 	 * @return the amount of change to be given back.
 	 */
 	public double setAmountPaid(double amountPaid) {
-		double changeBack = amountPaid - this.ongoingPay.getTotalPrice();
-
-		this.ongoingPay.setAmountPaid(amountPaid);
-		this.ongoingPay.setChangeBack(changeBack);
+		double changeBack = this.ongoingPay.setAmountPaid(amountPaid);
 
 		return changeBack;
 	}

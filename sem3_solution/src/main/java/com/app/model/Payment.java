@@ -49,12 +49,20 @@ public class Payment {
 	}
 
 	/**
-	 * Sets the amount paid by the customer.
+	 * Sets the amount paid by the customer and calculates the change
+	 * to be given back.
 	 *
 	 * @param amountPaid The amount the customer has paid.
+	 *
+	 * @return The change to be given back.
 	 */
-	public void setAmountPaid(double amountPaid) {
+	public double setAmountPaid(double amountPaid) {
+		double changeBack = amountPaid - this.totalPrice;
+
 		this.amountPaid = amountPaid; // Fixed: assigns to the class field
+		this.changeBack = changeBack;
+
+		return changeBack;
 	}
 
 	/**
