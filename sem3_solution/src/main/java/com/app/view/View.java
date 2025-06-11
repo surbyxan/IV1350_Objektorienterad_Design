@@ -60,11 +60,14 @@ public class View {
 		SaleDTO saleDTO = contr.requestDiscount();
 
 		// Payment Diagram
-		Payment pay = contr.startPayment();
-		contr.setAmountPaid(pay);
+		double totalPrice = contr.startPayment();
+		System.out.println("The price to pay is: "+ totalPrice); 
+
+		double changeBack = contr.setAmountPaid(totalPrice);
+		System.out.println("Give change: "+ changeBack); 
 
 		// createReceipt Diagram
-		Receipt receipt = contr.createReceipt(pay);
+		Receipt receipt = contr.createReceipt();
 		
 		printReceipt(receipt);
 

@@ -10,6 +10,7 @@ public class Controller {
 
 	private Sale saleInstance;
 	private Integration intgr;
+	private Payment ongoingPay;
 
 	/**
 	 * Constructs a new Controller with a specified integration component
@@ -79,33 +80,37 @@ public class Controller {
 	/**
 	 * Initiates the payment for the current sale. 
 	 * 
-	 * @return the Payment that was created from the sale.
+	 * @return the totalPrice from Payment that was created from the sale.
  	 */
- 	public Payment startPayment() {
-		Payment pay = saleInstance.initPayment(); 
-		return pay; 
+ 	public double startPayment() {
+		this.ongoingPay = saleInstance.initPayment();
+		return ongoingPay.getTotalPrice();
 	}
 
 	/**
 	 * Sets payment information for the view.
-	 * Displays the total price, sets the amount paid, and assumes no change is needed.
+	 * Sets the amount paid, and returns how much change is needed.
 	 *
-	 * @param pay The {@code Payment} object containing payment data.
-	 */
-	public void setAmountPaid(Payment pay) {
-		System.out.println("The price to pay is: "+ pay.getTotalPrice()); 
-		pay.setAmountPaid(pay.getTotalPrice());
-		pay.setChangeBack(0);
-	}
-	/**
-	 * Creates a new receipt using the provided payment.
+	 * @param amountPaid The amount of money paid by the customer.
 	 * 
-	 * @param pay to initiate the creation of the receipt.
+	 * @return the amount of change to be given back.
+	 */
+	public double setAmountPaid(double amountPaid) {
+		double changeBack = amountPaid - this.ongoingPay.getTotalPrice();
+
+		this.ongoingPay.setAmountPaid(amountPaid);
+		this.ongoingPay.setChangeBack(changeBack);
+
+		return changeBack;
+	}
+
+	/**
+	 * Creates a new receipt using the provided ongoing payment.
 	 * 
 	 * @return Receipt that was created to the view.
 	 */
-	public Receipt createReceipt(Payment pay){
-		Receipt receipt = saleInstance.getReceipt(pay);
+	public Receipt createReceipt(){
+		Receipt receipt = saleInstance.getReceipt(this.ongoingPay);
 
 		intgr.printFakeReceipt(receipt);
 
@@ -117,5 +122,6 @@ public class Controller {
 	 */
 	public void endSale() {
 		intgr.sendSaleInfo(saleInstance.getDTO());
+		this.ongoingPay = null;
 	}
 }
