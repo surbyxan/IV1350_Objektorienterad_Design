@@ -17,9 +17,10 @@ class PaymentTest {
     @Test
     void testSetAmountPaid() {
         Payment payment = new Payment(50.0);
-        payment.setAmountPaid(60.0);
+        double changeBack = payment.setAmountPaid(60.0);
 
         assertEquals(60.0, payment.getAmountPaid(), 0.001);
+        assertEquals(10.0, changeBack, 0.001);
     }
 
     @Test
